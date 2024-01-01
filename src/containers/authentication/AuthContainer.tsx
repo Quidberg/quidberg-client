@@ -28,7 +28,7 @@ const AuthContainer = ({authType,close, ...props}:Props) => {
             <h1 className="text-lg font-semibold">
               Join for free today and get:
             </h1>
-            <div className="flex flex-col gap-2 ml-3">
+            <div className="flex flex-col gap-2 ml-3 overflow-y-scroll no-scrollbar">
               <CheckText>{"Quality Classes and Tutorials"}</CheckText>
               <CheckText>
                 {"The best Examination simulator to adequately prepare you"}

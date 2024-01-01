@@ -57,6 +57,15 @@ p{
   @apply w-7 border border-none;
 }
 
+.no-scrollbar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+
 /* shake animation */
 .ahashakeheartache {
   -webkit-animation: kf_shake 0.4s 1 linear;

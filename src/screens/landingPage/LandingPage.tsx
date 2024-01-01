@@ -10,7 +10,7 @@ import Feature from "../../containers/landingPage/feature/Feature";
 import Testimonial from "../../containers/landingPage/testimonial/Testimonial";
 import listenForScroll from "../../shared/hooks/listenForScroll";
 import { useEffect, useRef, useState } from "react";
-import { PurpleCurve } from "../../assets/png";
+import { PurpleCurve, SlateCurve } from "../../assets/png";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ const LandingPage = () => {
           {/* banner */}
           <Banner handleAuth={handleAuth} />
         </div>
-        <img src={PurpleCurve} alt="" className="w-full -mt-[1px]"/>
+        <img src={SlateCurve} alt="" className="w-full -mt-[1px]"/>
       </section>
 
       {/* carousel */}

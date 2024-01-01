@@ -55,8 +55,8 @@ export default {
         gold: "#D4AF37",
         light_gold: "#FFFBEE",
         drop_down_bg: "#f9fafb",
-        from_banner: "#110A1F",
-        to_banner: "#150339",
+        from_banner: "#010B19",
+        to_banner: "#021C40",
 
         // input styling
         light_input_bg: "#FFFFFF"
