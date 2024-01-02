@@ -15,13 +15,15 @@ type Props = {
 };
 
 const Banner = ({ handleAuth }: Props) => {
-  const navigate = useNavigate()
-  const handleExploreNav = (id:string)=>{
-    const nav = navLinks?.find(link=>link.alias.toLowerCase() === id.toLowerCase())
-    if (nav){
-      navigate(nav.link)
+  const navigate = useNavigate();
+  const handleExploreNav = (id: string) => {
+    const nav = navLinks?.find(
+      (link) => link.alias.toLowerCase() === id.toLowerCase()
+    );
+    if (nav) {
+      navigate(nav.link);
     }
-  }
+  };
 
   return (
     <div className=" w-full flex flex-col gap-6 items-center text-center sm:px-5">
@@ -40,29 +42,51 @@ const Banner = ({ handleAuth }: Props) => {
 
       <section className="flex gap-5 w-full justify-center">
         <RoundedButton
-          className="py-2 px-2 "
+          className="py-2 px-2 flex-1 sm:flex-none"
           onClick={() => handleAuth(AuthType.signup)}
         >
-          {"Create account"}
+          <>
+            <p className="hidden sm:flex">{"Create account"}</p>
+            <p className="sm:hidden">{"Sign Up"}</p>
+          </>
         </RoundedButton>
         <RoundedButton
-          className="py-2 px-2"
+          className="py-2 px-2 flex-1 sm:flex-none"
           bgColor="bg-white_button_color"
           textColor="text-main_bg"
           onClick={() => handleAuth(AuthType.signin)}
-
         >
-          {"Login to your account"}
+          <>
+            <p className="hidden sm:flex">{"Login to your account"}</p>
+            <p className="sm:hidden">{"Login"}</p>
+          </>
         </RoundedButton>
       </section>
 
-      <section className="flex flex-col gap-3x bg-inherit w-full">
+      <section className="flex flex-col gap-3 bg-inherit w-full">
         <LineHeader>Explore</LineHeader>
         <div className="flex gap-3 flex-wrap justify-center">
-          <ExploreButton image={TutorIcon} handleExplore={handleExploreNav} id={NavLinksEnum.classes}>{"Classes"}</ExploreButton>
-          <ExploreButton image={ExamIcon} handleExplore={handleExploreNav} id= {NavLinksEnum.examination}>{"Exam Simulator"}</ExploreButton>
-          <ExploreButton image={StatIcon} handleExplore={handleExploreNav} id= {NavLinksEnum.oracle}>{"Oracle"}</ExploreButton>
-
+          <ExploreButton
+            image={TutorIcon}
+            handleExplore={handleExploreNav}
+            id={NavLinksEnum.classes}
+          >
+            {"Classes"}
+          </ExploreButton>
+          <ExploreButton
+            image={ExamIcon}
+            handleExplore={handleExploreNav}
+            id={NavLinksEnum.examination}
+          >
+            {"Exam Simulator"}
+          </ExploreButton>
+          <ExploreButton
+            image={StatIcon}
+            handleExplore={handleExploreNav}
+            id={NavLinksEnum.oracle}
+          >
+            {"Oracle"}
+          </ExploreButton>
         </div>
       </section>
     </div>

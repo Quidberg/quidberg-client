@@ -10,7 +10,7 @@ import Feature from "../../containers/landingPage/feature/Feature";
 import Testimonial from "../../containers/landingPage/testimonial/Testimonial";
 import listenForScroll from "../../shared/hooks/listenForScroll";
 import { useEffect, useRef, useState } from "react";
-import { PurpleCurve, SlateCurve } from "../../assets/png";
+import { ClassAd, ExamAd, OracleAd, PurpleCurve, SlateCurve } from "../../assets/png";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -67,32 +67,32 @@ const LandingPage = () => {
       <section></section>
 
       {/* features */}
-      <section className="flex flex-col items-center w-full mt-8 md:mt-20 xl:mt-25 px-4 md:px-8">
-        <div className="flex flex-col gap-8 md:gap-20 xl:gap-30 xl:w-[70%]">
+      <section className="flex flex-col items-center w-full mt-20 xl:mt-25  gap-14 md:gap-20 xl:gap-30">
           <Feature
-            image=""
-            title="Seeking admission and have no idea what University or Course would be a good fit for you? We got you covered."
-            description="Our ORACLE feature gives you analysis on your chances and eligibility in any university. We also recommend other Universities that might fit your needs."
+            image={OracleAd}
+            title="Seeking admission and have no idea what University or Course would be a good fit for you? We've got you covered."
+            description="Our ORACLE feature gives you analysis on your chances and eligibility of admission into any university. We also recommend other Universities that might fit your needs."
             handleFeatureNav={handleFeatureNav}
             navButtonText="Try Oracle Now"
+            
           />
           <Feature
-            image=""
+            image={ClassAd}
             title="Learn in an exciting, precise and efficient way."
-            description="Our goal with learning is to prepare you for the next step in your educational journey. We ensure our classes are updated, simple and streamlined to ease your learning process."
+            description="Our goal with learning is to prepare you for the next step in your educational journey. We ensure our classes are updated and streamlined to ease your learning process."
             handleFeatureNav={handleFeatureNav}
             navButtonText="Start Learning"
             textPosition="left"
-            navButtonStyle="bg-black"
+            buttonColor="bg-black"
+            bgColor="bg-super_light_gray"
           />
           <Feature
-            image=""
+            image={ExamAd}
             title="Ace your Exams with Updated Solutions and Resources."
-            description="We procure up-to-date Examination questions and give you accurate solutions (not just A,B,C,D) attached with additional resources to learn from."
+            description="We procure up-to-date Examination questions and provide accurate solutions (not just A,B,C,D) attached with additional resources to learn from."
             handleFeatureNav={handleFeatureNav}
             navButtonText="Start Practicing"
           />
-        </div>
       </section>
 
       {/* testimonials */}
@@ -101,7 +101,7 @@ const LandingPage = () => {
           {"What People have to say about Quidberg"}
         </h1>
 
-        <div className="w-full grid grid-cols-2 xl:grid-cols-3 xl:w-[70%] gap-7">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 xl:w-[70%] gap-7">
           <Testimonial
             authorName="Praise Ayodele"
             role="Teacher"

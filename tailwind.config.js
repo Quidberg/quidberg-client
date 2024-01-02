@@ -57,6 +57,8 @@ export default {
         drop_down_bg: "#f9fafb",
         from_banner: "#010B19",
         to_banner: "#021C40",
+        super_light_gray: "#F9F9F9",
+        black: "#000000",
 
         // input styling
         light_input_bg: "#FFFFFF"
