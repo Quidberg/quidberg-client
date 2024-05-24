@@ -6,7 +6,7 @@ export { default as AddFileIcon } from "./AddFileIcon.svg";
 export { default as BackIcon } from "./BackIcon.svg";
 export { default as CheckedIcon } from "./CheckedIcon.svg";
 export { default as UnCheckedIcon } from "./UnCheckedIcon.svg";
-export { default as UnCheckedBlack } from "./UnCheckedBlack.svg";
+// export { default as UnCheckedBlack } from "./UnCheckedBlack.svg";
 export { default as CloseIcon } from "./CloseIcon.svg";
 export { default as CloseIconBlack } from "./CloseIconBlack.svg";
 export { default as EyeIcon } from "./EyeIcon.svg";
