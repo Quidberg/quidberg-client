@@ -1,4 +1,4 @@
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { PRF } from "../../routes/AppRoutes";
 import { AuthRegType } from "../../app/slices/auth/types";
 import useAuthModal from "../../containers/authentication/useAuthModal";
@@ -60,21 +60,21 @@ const LandingPage = () => {
           {/* banner */}
           <Banner handleAuth={handleAuth} />
         </div>
-        <img src={SlateCurve} alt="" className="w-full -mt-[1px]"/>
+        <img src={SlateCurve} alt="" className="w-full -mt-[1px]" />
       </section>
 
-      {/* carousel */}
-      <section></section>
+      <main className="px-5 flex flex-col gap-8">
+        {/* carousel */}
+        <section></section>
 
-      {/* features */}
-      <section className="flex flex-col items-center w-full mt-20 xl:mt-25  gap-14 md:gap-20 xl:gap-30">
+        {/* features */}
+        <section className="flex flex-col items-center w-full mt-20 xl:mt-25  gap-14 md:gap-20 xl:gap-30">
           <Feature
             image={OracleAd}
             title="Seeking admission and have no idea what University or Course would be a good fit for you? We've got you covered."
             description="Our ORACLE feature gives you analysis on your chances and eligibility of admission into any university. We also recommend other Universities that might fit your needs."
             handleFeatureNav={handleFeatureNav}
             navButtonText="Try Oracle Now"
-            
           />
           <Feature
             image={ClassAd}
@@ -93,46 +93,47 @@ const LandingPage = () => {
             handleFeatureNav={handleFeatureNav}
             navButtonText="Start Practicing"
           />
-      </section>
+        </section>
 
-      {/* testimonials */}
-      <section className="flex flex-col justify-center gap-4 items-center mt-8 sm:mt-15 md:mt-20 xl:mt-25 ">
-        <h1 className="text-lg md:text-xl font-semibold">
-          {"What People have to say about Quidberg"}
-        </h1>
+        {/* testimonials */}
+        <section className="flex flex-col justify-center gap-6 items-center mt-8 sm:mt-15 md:mt-20 xl:mt-25 ">
+          <h1 className="text-lg md:text-xl font-semibold">
+            {"What People have to say about Quidberg"}
+          </h1>
 
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 xl:w-[70%] gap-7">
-          <Testimonial
-            authorName="Praise Ayodele"
-            role="Teacher"
-            school="Quidberg Inc."
-          >
-            {
-              "Your method is simple, straight to the point and I can practice with it everywhere, even from my phone, that's something I have never had in other learning platforms."
-            }{" "}
-          </Testimonial>
-          <Testimonial
-            authorName="Praise Ayodele"
-            role="Student"
-            school="Quidberg Inc."
-          >
-            {
-              "I highly recommend Quidberg. The classes are well organized and easy to understand."
-            }
-          </Testimonial>
-          <Testimonial
-            authorName="Praise Ayodele"
-            role="Teacher"
-            school="Quidberg Inc."
-          >
-            {
-              "I prefer Quidberg classes because they have a nice mix of text & images. I find that with full video courses, it can often be too easy to go into passive learning mode."
-            }
-          </Testimonial>
-        </div>
-      </section>
+          <div className="w-full max-w-[800px] grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 xl:w-[70%] gap-7">
+            <Testimonial
+              authorName="Praise Ayodele"
+              role="Teacher"
+              school="Quidberg Inc."
+            >
+              {
+                "Your method is simple, straight to the point and I can practice with it everywhere, even from my phone, that's something I have never had in other learning platforms."
+              }{" "}
+            </Testimonial>
+            <Testimonial
+              authorName="Praise Ayodele"
+              role="Student"
+              school="Quidberg Inc."
+            >
+              {
+                "I highly recommend Quidberg. The classes are well organized and easy to understand."
+              }
+            </Testimonial>
+            <Testimonial
+              authorName="Praise Ayodele"
+              role="Teacher"
+              school="Quidberg Inc."
+            >
+              {
+                "I prefer Quidberg classes because they have a nice mix of text & images. I find that with full video courses, it can often be too easy to go into passive learning mode."
+              }
+            </Testimonial>
+          </div>
+        </section>
 
-      {/* footer */}
+        {/* footer */}
+      </main>
     </div>
   );
 };

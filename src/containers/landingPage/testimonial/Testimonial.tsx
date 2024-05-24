@@ -11,12 +11,12 @@ type Props = {
 };
 const Testimonial = ({ children, avatar, authorName, role, school }: Props) => {
   return (
-    <div className="w-full aspect-[0.9] border-[1px] rounded-md border-light_border_color px-3">
-      <section className="flex flex-col items-center border-b-[1px] border-light_border_color h-[60%] w-full p-4 overflow-y-auto no-scrollbar">
+    <div className="w-full hit-fit border-[1px] rounded-md border-light_border_color px-3">
+      <section className="flex flex-col items-center border-b-[1px] border-light_border_color max-h-[60%] w-full p-4 overflow-y-auto no-scrollbar">
         <QuoteIcon />
         <p className="text-center text-light_font">{children}</p>
       </section>
-      <section className="flex h-[40%] gap-2 items-center  ">
+      <section className="flex h-fit gap-2 items-center  ">
         <div className="flex flex-col flex-1 h-full py-4 gap-1 text-light_font">
           <p className="text-sm font-semibold">{authorName}</p>
           <p className="text-sm">{role}</p>
