@@ -33,6 +33,9 @@ export const AppRoutes = {
   subscription: {
     index: `${PRF}/subscription`,
   },
+  pricing: {
+    index: `${PRF}/pricing`
+  },
   settings: {
     index: `${PRF}/settings`,
   },

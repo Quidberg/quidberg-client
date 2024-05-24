@@ -1,7 +1,7 @@
 import { Disclosure } from "@headlessui/react";
 import { ArrowDown, CloseGreyIcon } from "../../assets/svg";
-import { NavLinksProps } from "../nav_bar/Links";
-import NavLinkButton from "../nav_bar/NavLinkButton";
+import { NavLinksPropsType } from "./Links";
+// import NavLinkButton from "../nav_bar/NavLinkButton";
 import { AppRoutes } from "../../routes/AppRoutes";
 import { Link } from "react-router-dom";
 import TextWithIcon from "../../components/styledTexts/TextWithIcon";
@@ -14,7 +14,7 @@ import SettingsIcon from "../../assets/comps/SettingsIcon";
 
 type DropDownMenuPropType = {
   isOpen: boolean;
-  navLinks: NavLinksProps[];
+  navLinks: NavLinksPropsType[];
   handleNav: (link: string) => void;
   currentPath: string;
   handleClose: () => void;
@@ -61,13 +61,32 @@ const DropDownMenu = ({
                 />
               </Disclosure.Button>
               <Disclosure.Panel className="flex flex-col gap-3 px-4 pt-4 pb-2 text-sm text-gray-500">
-                <h1 className="font-medium text-lg">Explore our Learning Resources and Features</h1>
-                  <div className="flex flex-col justify-start items-start gap-2">
-                    <MenuCard link={AppRoutes.classesAndResources.classes} title='Classes and Tutorial' description='Learn with the best resources.' Icon={TutorIcon} handleClose= {handleClose} />
-                    <MenuCard link={AppRoutes.examination.index} title='Examination Simulator' description='Assess yourself with our Examination simulator.' Icon={ExamIcon} handleClose= {handleClose}/>
-                    <MenuCard link={AppRoutes.statistics.registration.setup} title='Oracle' description='Check your chances of admission.' Icon={StatIcon} handleClose= {handleClose}/>
-
-                  </div>
+                <h1 className="font-medium text-lg">
+                  Explore our Learning Resources and Features
+                </h1>
+                <div className="flex flex-col justify-start items-start gap-2">
+                  <MenuCard
+                    link={AppRoutes.classesAndResources.classes}
+                    title="Classes and Tutorial"
+                    description="Learn with the best resources."
+                    Icon={TutorIcon}
+                    handleClose={handleClose}
+                  />
+                  <MenuCard
+                    link={AppRoutes.examination.index}
+                    title="Examination Simulator"
+                    description="Assess yourself with our Examination simulator."
+                    Icon={ExamIcon}
+                    handleClose={handleClose}
+                  />
+                  <MenuCard
+                    link={AppRoutes.statistics.registration.setup}
+                    title="Oracle"
+                    description="Check your chances of admission."
+                    Icon={StatIcon}
+                    handleClose={handleClose}
+                  />
+                </div>
               </Disclosure.Panel>
             </>
           )}
@@ -93,12 +112,25 @@ const DropDownMenu = ({
                 />
               </Disclosure.Button>
               <Disclosure.Panel className="flex flex-col gap-3 px-4 pt-4 pb-2 text-sm text-gray-500">
-              <h1 className="font-medium text-lg">Personalize your experience</h1>
-                  <div className="flex flex-col justify-start items-start gap-2">
-                    <MenuCard link={AppRoutes.dashboard.index} title='Dashboard' description='Set goals, targets and View performance.' Icon={DashboardIcon} handleClose= {handleClose}/>
-                    <MenuCard link={AppRoutes.settings.index} title='Setting' description='Personalize the feel and experience.' Icon={SettingsIcon} handleClose= {handleClose}/>
-
-                  </div>
+                <h1 className="font-medium text-lg">
+                  Personalize your experience
+                </h1>
+                <div className="flex flex-col justify-start items-start gap-2">
+                  <MenuCard
+                    link={AppRoutes.dashboard.index}
+                    title="Dashboard"
+                    description="Set goals, targets and View performance."
+                    Icon={DashboardIcon}
+                    handleClose={handleClose}
+                  />
+                  <MenuCard
+                    link={AppRoutes.settings.index}
+                    title="Setting"
+                    description="Personalize the feel and experience."
+                    Icon={SettingsIcon}
+                    handleClose={handleClose}
+                  />
+                </div>
               </Disclosure.Panel>
             </>
           )}
@@ -124,12 +156,23 @@ const DropDownMenu = ({
                 />
               </Disclosure.Button>
               <Disclosure.Panel className="flex flex-col gap-3 px-4 pt-4 pb-2 text-sm text-gray-500">
-              <h1 className="font-medium text-lg">We love to help</h1>
-                  <div className="flex flex-col justify-start items-start gap-2">
-                    <MenuCard link={''} title='Consultancy' description='Hear from a Professional.' Icon={DashboardIcon} handleClose= {handleClose}/>
-                    <MenuCard link={''} title='Customer Support' description='How can we assist you today?' Icon={SettingsIcon} handleClose= {handleClose} />
-
-                  </div>
+                <h1 className="font-medium text-lg">We love to help</h1>
+                <div className="flex flex-col justify-start items-start gap-2">
+                  <MenuCard
+                    link={""}
+                    title="Consultancy"
+                    description="Hear from a Professional."
+                    Icon={DashboardIcon}
+                    handleClose={handleClose}
+                  />
+                  <MenuCard
+                    link={""}
+                    title="Customer Support"
+                    description="How can we assist you today?"
+                    Icon={SettingsIcon}
+                    handleClose={handleClose}
+                  />
+                </div>
               </Disclosure.Panel>
             </>
           )}
@@ -150,17 +193,17 @@ const DropDownMenu = ({
           );
         })} */}
 
-        <section className = 'w-full flex flex-col justify-center items-center px-6 mt-6'>
-
-        <Link to={AppRoutes.subscription.index} className="flex justify-center items-center border-[1.6px] text-sm border-light_font p-2 font-semibold w-[90%]">
-          View Pricing
-        </Link >
+        <section className="w-full flex flex-col justify-center items-center px-6 mt-6">
+          <Link
+            to={AppRoutes.pricing.index}
+            className="flex justify-center items-center border-[1.6px] text-sm border-light_font p-2 font-semibold w-[90%]"
+          >
+            View Pricing
+          </Link>
         </section>
       </section>
     </div>
   );
 };
-
-
 
 export default DropDownMenu;

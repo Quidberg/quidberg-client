@@ -7,7 +7,7 @@ export interface BasicValueType {
   id: string;
 }
 
-export interface InputFieldPropsType {
+export interface InputFieldPropsType  {
   placeholder?: string;
   title?: string;
   className?: string;

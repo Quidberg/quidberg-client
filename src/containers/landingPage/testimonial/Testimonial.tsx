@@ -18,8 +18,8 @@ const Testimonial = ({ children, avatar, authorName, role, school }: Props) => {
       </section>
       <section className="flex h-[40%] gap-2 items-center  ">
         <div className="flex flex-col flex-1 h-full py-4 gap-1 text-light_font">
-          <p className="text-base font-semibold">{authorName}</p>
-          <p className="text-base">{role}</p>
+          <p className="text-sm font-semibold">{authorName}</p>
+          <p className="text-sm">{role}</p>
           <p className="text-sm font-semibold text-main_bg/80 mt-1">{`@ ${school}`}</p>
         </div>
         {/* Avatar */}

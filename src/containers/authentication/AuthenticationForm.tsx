@@ -57,7 +57,7 @@ const AuthenticationForm = ({ authType }: AuthCompProps) => {
       </div>
 
       <RoundedButton className="w-full mt-4 xl:mt-10 py-2">
-        Create an account
+        {authType === AuthType.signin ? "Login" : "Create an account"}
       </RoundedButton>
 
       <div className="w-full flex justify-center mt-4">

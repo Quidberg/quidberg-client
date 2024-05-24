@@ -5,8 +5,8 @@ import { useAppDispatch } from "../../app/hooks/regHook";
 import { showModal } from "../../app/slices/modal/modalSlice";
 import { NavigateFunction } from "react-router-dom";
 import SearchField from "../../components/fields/SearchField";
-import DropDownMenu from "../dropDowns/DropDownMenu";
-import { NavLinksProps } from "./Links";
+import DropDownMenu from "./DropDownMenu";
+import { NavLinksPropsType } from "./Links";
 import SearchDropDown from "../dropDowns/SearchDropDown";
 import SearchButton from "../../components/buttons/SearchButton";
 import DropDownContainer from "./DropDownContainer";
@@ -18,10 +18,10 @@ type TopNavPropTypes = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   navigate: NavigateFunction;
-  navLinks: NavLinksProps[];
+  navLinks: NavLinksPropsType[];
   handleNav: (link: string) => void;
   currenPath: string;
-  handleAuth: (type:AuthType)=>void
+  handleAuth: (type: AuthType) => void;
 };
 
 type dropDownContentsType = {
@@ -34,7 +34,7 @@ const TopNav = ({
   navigate,
   handleNav,
   currenPath,
-  handleAuth
+  handleAuth,
 }: TopNavPropTypes) => {
   const dispatch = useAppDispatch();
 
@@ -62,7 +62,7 @@ const TopNav = ({
     if (dropDownContent) {
       setDropDownContent(null);
     } else {
-    setDropDownContent(DropDownContentEnum.SearchDropDown);
+      setDropDownContent(DropDownContentEnum.SearchDropDown);
     }
   };
 
@@ -73,7 +73,6 @@ const TopNav = ({
   const handleSearch = () => {};
 
   const showSearchResults = () => {};
-
 
   return (
     <div
@@ -122,10 +121,13 @@ const TopNav = ({
           <div className="flex flex-row items-center pl-4 text-sm md:text-base gap-3  ">
             <div className="w-[1.2px] h-7 bg-light_border_color"></div>
             {/* sign in */}
-            <button onClick = {()=>handleAuth(AuthType.signin)}>Sign In</button>
+            <button onClick={() => handleAuth(AuthType.signin)}>Sign In</button>
 
             {/* sign up */}
-            <button onClick = {()=>handleAuth(AuthType.signup)} className="text-[#FFFFFF] bg-main_bg px-3 py-1 md:px-3 md:py-3">
+            <button
+              onClick={() => handleAuth(AuthType.signup)}
+              className="text-[#FFFFFF] bg-main_bg px-3 py-1 md:px-3 md:py-3"
+            >
               <p className="hidden md:flex">Join for Free</p>
               <p className="md:hidden">Join</p>
             </button>

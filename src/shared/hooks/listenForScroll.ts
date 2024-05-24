@@ -31,6 +31,7 @@ function listenForScroll(funct?: ParamType) {
       window.removeEventListener("scroll", scrollEvent);
     };
   }, [window.scrollY]);
+  
   return { ...scrollProps };
 }
 export default listenForScroll;

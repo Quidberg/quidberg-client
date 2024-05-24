@@ -89,7 +89,7 @@ const LandingPage = () => {
           <Feature
             image={ExamAd}
             title="Ace your Exams with Updated Solutions and Resources."
-            description="We procure up-to-date Examination questions and provide accurate solutions (not just A,B,C,D) attached with additional resources to learn from."
+            description="We procure up-to-date questions on all Examinations and provide accurate solutions (not just A,B,C,D) attached with additional resources to learn from. We attach detailed solutions and other examples so You never miss a question again."
             handleFeatureNav={handleFeatureNav}
             navButtonText="Start Practicing"
           />

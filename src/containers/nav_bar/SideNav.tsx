@@ -1,8 +1,8 @@
-import { NavLinksProps } from "./Links";
+import { NavLinksPropsType } from "./Links";
 import NavLinkButton from "./NavLinkButton";
 
 type SideNavPropType = {
-  navLinks: NavLinksProps[];
+  navLinks: NavLinksPropsType[];
   handleNav: (link: string) => void;
   currentPath: string;
 };

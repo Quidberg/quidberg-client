@@ -8,7 +8,7 @@ import NewsIcon from "../../assets/comps/NewsIcon";
 import SettingsIcon from "../../assets/comps/SettingsIcon";
 import SubscriptionIcon from "../../assets/comps/SubscriptionIcon";
 
-export type NavLinksProps = {
+export type NavLinksPropsType = {
   name: string;
   link: string;
   alias: string;
@@ -16,7 +16,7 @@ export type NavLinksProps = {
   isActive: boolean;
 };
 
-export const navLinks:NavLinksProps[] = [
+export const navLinks:NavLinksPropsType[] = [
     
     {
       name: "Statistics and Analysis",

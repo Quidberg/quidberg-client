@@ -11,6 +11,7 @@ import Settings from "../screens/settings/Settings";
 import OracleProtectedRoute from "./protectedRoutes/OracleProtectedRoute";
 import Authentication from "../screens/authentication/Authentication";
 import LandingPage from "../screens/landingPage/LandingPage";
+import Pricing from "../screens/pricing/Pricing";
 
 const RoutesSwitches = ({}) => {
   return (
@@ -45,6 +46,10 @@ const RoutesSwitches = ({}) => {
           <Route
             path={AppRoutes.subscription.index}
             element={<Subscription />}
+          />
+          <Route
+            path={AppRoutes.pricing.index}
+            element={<Pricing />}
           />
           <Route path={AppRoutes.settings.index} element={<Settings />} />
           <Route path={AppRoutes.dashboard.index} element={<Dashboard />} />
