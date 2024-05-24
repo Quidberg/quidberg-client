@@ -6,7 +6,7 @@ export { default as AddFileIcon } from "./AddFileIcon.svg";
 export { default as BackIcon } from "./BackIcon.svg";
 export { default as CheckedIcon } from "./CheckedIcon.svg";
 export { default as UnCheckedIcon } from "./UnCheckedIcon.svg";
-// export { default as UnCheckedBlack } from "./UnCheckedBlack.svg";
+export { default as UnCheckedBlack } from "./UncheckedBlack.svg";
 export { default as CloseIcon } from "./CloseIcon.svg";
 export { default as CloseIconBlack } from "./CloseIconBlack.svg";
 export { default as EyeIcon } from "./EyeIcon.svg";
@@ -24,4 +24,3 @@ export { default as CloseGreyIcon } from "./CloseGreyIcon.svg";
 export { default as WarningIcon } from "./WarningIcon.svg";
 export { default as AvatarIcon } from "./AvatarIcon.svg";
 export { default as TrashIcon } from "./TrashIcon.svg";
-
