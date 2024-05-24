@@ -10,7 +10,10 @@ type ParamTypes = {
   universityId: string | null;
 };
 
-const getUniversity = (id: string | null) => {
+const getUniversity = (
+  id: string | null
+  ) => {
+    console.log(id)
   // API to fetch university
   const universityData = selectedUniversityData;
   return universityData;

@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
-import { Dispatch, Fragment, SetStateAction, useState } from "react";
-import { Dialog, Menu, Transition } from "@headlessui/react";
+import {  Fragment,  } from "react";
+import {  Menu, Transition } from "@headlessui/react";
 
 type DropDownContainerPropType = {
   children: ReactElement;
@@ -12,7 +12,7 @@ type DropDownContainerPropType = {
 const DropDownContainer = ({
   children,
   isOpen,
-  handleClose,
+  // handleClose,
   dialogClassName,
 }: DropDownContainerPropType) => {
   return (

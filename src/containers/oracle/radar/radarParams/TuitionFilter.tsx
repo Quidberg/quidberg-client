@@ -1,6 +1,6 @@
 import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
-import InputField from "../../../../components/fields/InputField";
+// import InputField from "../../../../components/fields/InputField";
 import { memo, useState } from "react";
 import { numToCurrency } from "../../../../utils/utilFunction";
 
@@ -8,16 +8,16 @@ const TuitionFilter = () => {
   const edgeVals = { min: 0, max: 10000000 };
   const [val, setVal] = useState([0, 10000000]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputVal = Number(e.target.value);
-    const id = e.target.id;
-    console.log(inputVal);
-    if (id === "min_tuition") {
-      setVal([inputVal, val[1]]);
-    } else {
-      setVal([val[0], inputVal]);
-    }
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const inputVal = Number(e.target.value);
+  //   const id = e.target.id;
+  //   console.log(inputVal);
+  //   if (id === "min_tuition") {
+  //     setVal([inputVal, val[1]]);
+  //   } else {
+  //     setVal([val[0], inputVal]);
+  //   }
+  // };
   return (
     <div className="flex flex-col gap-1">
       <h3>Tuition Range</h3>

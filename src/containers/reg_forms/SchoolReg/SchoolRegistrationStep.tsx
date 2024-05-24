@@ -14,14 +14,14 @@ import {
 } from "../../../app/slices/oracleRegistration/types";
 import {
   selectFormValues,
-  selectUniversitiesData,
-  selectUniversityData,
-  setCourseData,
+  // selectUniversitiesData,
+  // selectUniversityData,
+  // setCourseData,
   setFormValues,
-  setUniversityData,
+  // setUniversityData,
 } from "../../../app/slices/oracleRegistration/registrationSlice";
 import { Form, Formik } from "formik";
-import { fetchCourse } from "../hooks/fetchCourse";
+// import { fetchCourse } from "../hooks/fetchCourse";
 import { fetchUniversities } from "../hooks/fetchUniversities";
 import { fetchUniversity } from "../hooks/fetchUniversity";
 import { fieldInfo } from "./fieldInfo";
@@ -85,10 +85,10 @@ const SchoolRegistration = () => {
   const { universityDataStore } = fetchUniversity({
     universityId: formValState?.university?.id || null,
   });
-  const courseData = fetchCourse({
-    courseId: formValState["course"]?.id || "",
-    universityId: "",
-  });
+  // const courseData = fetchCourse({
+  //   courseId: formValState["course"]?.id || "",
+  //   universityId: "",
+  // });
 
   // FIELD ACTIONS
   const handleSearchFilterList = ({
@@ -145,6 +145,7 @@ const SchoolRegistration = () => {
   };
 
   const handleUniversityDropDown = (id: string) => {
+    console.log(id)
     setErrors(initialErrors);
   };
 
@@ -176,7 +177,9 @@ const SchoolRegistration = () => {
   };
 
   // VALIDATIONS
-  const validateForm = (values: SchoolRegFormType) => {
+  const validateForm = (
+    // values: SchoolRegFormType
+    ) => {
     const errors: SchoolRegFormErrors | null = {};
     const jambScore = formValState["jambScore"];
     const university = formValState["university"];
@@ -227,7 +230,9 @@ const SchoolRegistration = () => {
   };
 
   // SUBMISSIONS
-  const handleSubmit = (values: SchoolRegFormType) => {
+  const handleSubmit = (
+    // values: SchoolRegFormType
+    ) => {
     dispatch(setFormValues(formValState));
     console.log(formValState);
     handleNextStep();
@@ -245,7 +250,9 @@ const SchoolRegistration = () => {
         onSubmit={handleSubmit}
         validate={validateForm}
       >
-        {({ handleSubmit, errors: errorsFormik }) => (
+        {({ handleSubmit, 
+        // errors: errorsFormik 
+      }) => (
           <FormCard
             title="University of Choice"
             subtitle="Fill in your choice school"

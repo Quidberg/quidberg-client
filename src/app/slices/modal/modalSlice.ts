@@ -19,13 +19,13 @@ export const modalSlice = createSlice({
     closeModal: (state, action: PayloadAction<string>) => {
       state[action.payload as keyof InitialModalStateType] = false;
     },
-    clearModal: (state) => {
-      state = initialModalState;
-    },
+    // clearModal: (state) => {
+    //   state = { ...initialModalState };
+    // },
   },
 });
 
-export const { showModal, closeModal, clearModal } = modalSlice.actions;
+export const { showModal, closeModal,  } = modalSlice.actions;
 
 export const selectModal = (modalKey: string) => (state: RootStateType) =>
   state.modal[modalKey as keyof InitialModalStateType];

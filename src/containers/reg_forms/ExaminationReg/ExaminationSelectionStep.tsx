@@ -8,8 +8,8 @@ import {
   selectExaminations,
   selectCourseData,
   selectUniversityData,
-  setExaminations,
-  selectExaminationTaken,
+  // setExaminations,
+  // selectExaminationTaken,
   setExaminationTaken,
 } from "../../../app/slices/oracleRegistration/registrationSlice";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks/regHook";
@@ -26,11 +26,11 @@ import NoExamEntryModal from "../../modals/warningModal/NoExamEntryModal";
 import { fetchExamsData } from "../hooks/fetchExamsData";
 import watchSchoolRegStep from "../hooks/watchSchoolRegStep";
 import UpdatedDataModal from "../../modals/infoModal/UpdatedDataModal";
-import GenericWarningModal from "../../modals/warningModal/GenericWarningModal";
+// import GenericWarningModal from "../../modals/warningModal/GenericWarningModal";
 import RemoveExamWarningModal from "../../modals/warningModal/RemoveExamWarningModal";
 
 const ExaminationSelectionForm = () => {
-  const examinationTaken = useAppSelector(selectExaminationTaken);
+  // const examinationTaken = useAppSelector(selectExaminationTaken);
   const examinationTakenComponent = useAppSelector(selectExaminations);
   const selectedUniversity = useAppSelector(selectUniversityData);
   const selectedCourse = useAppSelector(selectCourseData);

@@ -1,4 +1,3 @@
-import React from "react";
 import { SearchResultsType } from "../../shared/types/ComponentTypes";
 
 

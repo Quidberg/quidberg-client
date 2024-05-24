@@ -3,8 +3,8 @@ import DashboardIcon from "../../assets/comps/DashboardIcon";
 import StatIcon from "../../assets/comps/StatIcon";
 import TutorIcon from "../../assets/comps/TutorIcon";
 import ExamIcon from "../../assets/comps/ExamIcon";
-import SupportIcon from "../../assets/comps/SupportIcon";
-import NewsIcon from "../../assets/comps/NewsIcon";
+// import SupportIcon from "../../assets/comps/SupportIcon";
+// import NewsIcon from "../../assets/comps/NewsIcon";
 import SettingsIcon from "../../assets/comps/SettingsIcon";
 import SubscriptionIcon from "../../assets/comps/SubscriptionIcon";
 

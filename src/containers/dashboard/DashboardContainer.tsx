@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import UserProfile from "./profile/UserProfile";
 import { stringParser } from "../../utils/utilFunction";
 import FormCard from "../../components/cards/FormCard";
@@ -56,7 +56,9 @@ const dummyActivities = [
 ]
 
 const DashboardContainer = () => {
-  const [userProfile, setUserProfile] = useState<UserProfileType>(dummyProfile);
+  const [userProfile, 
+    // setUserProfile
+  ] = useState<UserProfileType>(dummyProfile);
 
   const handleEditProfilePic = () => {};
 

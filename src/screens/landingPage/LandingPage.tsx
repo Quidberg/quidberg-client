@@ -1,8 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { PRF } from "../../routes/AppRoutes";
 import { AuthRegType } from "../../app/slices/auth/types";
 import useAuthModal from "../../containers/authentication/useAuthModal";
-import { AuthType } from "../../utils/enums/AuthEnum";
+// import { AuthType } from "../../utils/enums/AuthEnum";
 import NavBar from "../../containers/landingPage/navBar/NavBar";
 import AuthModal from "../../containers/authentication/AuthModal";
 import Banner from "../../containers/landingPage/banner/Banner";
@@ -10,7 +10,7 @@ import Feature from "../../containers/landingPage/feature/Feature";
 import Testimonial from "../../containers/landingPage/testimonial/Testimonial";
 import listenForScroll from "../../shared/hooks/listenForScroll";
 import { useEffect, useRef, useState } from "react";
-import { ClassAd, ExamAd, OracleAd, PurpleCurve, SlateCurve } from "../../assets/png";
+import { ClassAd, ExamAd, OracleAd, SlateCurve } from "../../assets/png";
 
 const LandingPage = () => {
   const navigate = useNavigate();

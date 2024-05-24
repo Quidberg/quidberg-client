@@ -1,4 +1,3 @@
-import React from 'react'
 import SearchField from '../../components/fields/SearchField'
 import ExploreClasses from './ExploreClasses'
 import BrowseAll from './BrowseAll'

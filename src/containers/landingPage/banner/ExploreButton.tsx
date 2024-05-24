@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import OutlineButton from '../../../components/buttons/OutlineButton'
-import RightArrow from '../../../assets/comps/RightArrow'
+// import RightArrow from '../../../assets/comps/RightArrow'
 import RightCaret from '../../../assets/comps/RightCaret'
 
 type Props = {

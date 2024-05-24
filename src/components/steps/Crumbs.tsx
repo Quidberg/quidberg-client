@@ -20,7 +20,9 @@ const Crumb = ({
   handleStep: (position: number) => void;
   currentPosition: number;
 }) => {
-  const { id, position, title } = crumbItem;
+  const { 
+    // id, 
+    position, title } = crumbItem;
   const handleStepChange = () => {
     handleStep(position);
   };
@@ -64,7 +66,7 @@ const Crumb = ({
 
 const Crumbs = ({
   currentPosition,
-  max,
+  // max,
   crumbList,
   handleCrumbStep,
 }: CrumbsPropType) => {

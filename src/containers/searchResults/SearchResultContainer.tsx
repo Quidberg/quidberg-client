@@ -1,4 +1,3 @@
-import React from "react";
 import { SearchResultsType, TagType } from "../../shared/types/ComponentTypes";
 import SearchTag from "./SearchTag";
 import SearchCard from "./SearchCard";
@@ -11,7 +10,7 @@ type SearchResultContainerPropType = {
 };
 
 const SearchResultContainer = ({
-  searchResults,
+  // searchResults,
   tags,
   topSearches,
   handleSearchTag,

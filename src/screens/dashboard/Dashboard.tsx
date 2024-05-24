@@ -1,4 +1,4 @@
-import UnderConstruction from "../../components/info/UnderConstruction";
+// import UnderConstruction from "../../components/info/UnderConstruction";
 import DashboardContainer from "../../containers/dashboard/DashboardContainer";
 
 const Dashboard = () => {

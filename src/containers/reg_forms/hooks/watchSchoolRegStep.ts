@@ -15,11 +15,11 @@ const watchSchoolRegStep = (examData: Array<ExaminationType> | null) => {
     setIsSchoolDataUpdated(false);
   };
 
-  // useEffect(()=>{
-  //     if (!Boolean(examData?.length)) return
-  //     console.log(examData)
-  //     setIsSchoolDataUpdated(true)
-  // },[courseData,universityData])
+  useEffect(()=>{
+      if (!Boolean(examData?.length)) return
+      console.log(examData)
+      setIsSchoolDataUpdated(true)
+  },[courseData,universityData])
 
   return { isSchoolDataUpdated, setIsSchoolDataUpdated, setSchoolUpdateFalse };
 };

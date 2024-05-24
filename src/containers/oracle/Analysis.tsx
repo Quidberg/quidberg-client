@@ -1,7 +1,7 @@
-import { memo, useState } from "react";
+import { memo,  } from "react";
 
 const Analysis = () => {
-  const [isReadMore, setIsReadMore] = useState(false);
+  // const [isReadMore, setIsReadMore] = useState(false);
   return (
     <div className="flex flex-col items-start justify-center gap-2">
       <h3 className="font-main_header_weight">{"Analysis"}</h3>

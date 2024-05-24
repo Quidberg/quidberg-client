@@ -21,10 +21,10 @@ type DropDownMenuPropType = {
 };
 
 const DropDownMenu = ({
-  isOpen,
-  navLinks,
-  handleNav,
-  currentPath,
+  // isOpen,
+  // navLinks,
+  // handleNav,
+  // currentPath,
   handleClose,
 }: DropDownMenuPropType) => {
   return (

@@ -1,5 +1,3 @@
-import React from "react";
-import TextWithIcon from "../styledTexts/TextWithIcon";
 import { LinkIcon } from "../../assets/svg";
 
 export type LinkButtonType = {
@@ -7,7 +5,7 @@ export type LinkButtonType = {
   handleLink: () => void;
 };
 
-const LinkButton = ({ text, handleLink }: LinkButtonType) => {
+const LinkButton = ({ text, }: LinkButtonType) => {
   return (
     <button className="text-main_bg">
       <p className="text-sm md:text-base">

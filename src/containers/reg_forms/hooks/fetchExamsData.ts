@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+// import { useCallback, useEffect, useState } from "react";
 import { examinations } from "../../../utils/dummyData";
 import { ExaminationType } from "../../../app/slices/oracleRegistration/types";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks/regHook";

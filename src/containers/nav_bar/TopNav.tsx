@@ -1,15 +1,17 @@
-import React, { ReactElement, useState } from "react";
+import React, { useState } from "react";
 import { BurgerMenu, CloseGreyIcon, ThreeDotMenu } from "../../assets/svg";
-import { AppRoutes, PRF } from "../../routes/AppRoutes";
+import { 
+  // AppRoutes,
+   PRF } from "../../routes/AppRoutes";
 import { useAppDispatch } from "../../app/hooks/regHook";
 import { showModal } from "../../app/slices/modal/modalSlice";
 import { NavigateFunction } from "react-router-dom";
-import SearchField from "../../components/fields/SearchField";
-import DropDownMenu from "./DropDownMenu";
+// import SearchField from "../../components/fields/SearchField";
+// import DropDownMenu from "./DropDownMenu";
 import { NavLinksPropsType } from "./Links";
 import SearchDropDown from "../dropDowns/SearchDropDown";
 import SearchButton from "../../components/buttons/SearchButton";
-import DropDownContainer from "./DropDownContainer";
+// import DropDownContainer from "./DropDownContainer";
 import { DropDownContentEnum } from "../../utils/enums/NavBarEnum";
 import { useListenForOutsideClicks } from "../../shared/hooks/listenForOutsideClicks";
 import { AuthType } from "../../utils/enums/AuthEnum";
@@ -24,23 +26,25 @@ type TopNavPropTypes = {
   handleAuth: (type: AuthType) => void;
 };
 
-type dropDownContentsType = {
-  [index: string]: ReactElement;
-};
+// type dropDownContentsType = {
+//   [index: string]: ReactElement;
+// };
 
 const TopNav = ({
   isOpen,
   setIsOpen,
   navigate,
-  handleNav,
-  currenPath,
+  // handleNav,
+  // currenPath,
   handleAuth,
 }: TopNavPropTypes) => {
   const dispatch = useAppDispatch();
 
   //   STATES
-  const [auth, setAuth] = useState(false);
-  const [isDropDownActive, setIsDropDownActive] = useState(false);
+  const [auth, 
+    // setAuth
+  ] = useState(false);
+  // const [isDropDownActive, setIsDropDownActive] = useState(false);
   const [dropDownContent, setDropDownContent] = useState<null | string>(null);
 
   // HOOKS
@@ -70,7 +74,7 @@ const TopNav = ({
     setDropDownContent(null);
   };
 
-  const handleSearch = () => {};
+  // const handleSearch = () => {};
 
   const showSearchResults = () => {};
 

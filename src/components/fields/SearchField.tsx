@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import SearchIcon from "../../assets/comps/SearchIcon";
-import { CloseGreyIcon } from "../../assets/svg";
+// import { CloseGreyIcon } from "../../assets/svg";
 import CloseIcon from "../../assets/comps/CloseIcon";
 
 type SearchFieldPropTypes = {
@@ -8,17 +8,17 @@ type SearchFieldPropTypes = {
   handleSubmit: () => void;
   isTopNavSearch?: boolean; // Check if the search bar is on the top bar to apply styles
   isColored?: boolean;
-  fieldName?: string
+  fieldName?: string;
 };
 
 const SearchField = ({
   placeholder,
-  isTopNavSearch,
-  handleSubmit,
+  // isTopNavSearch,
+  // handleSubmit,
   isColored,
-  fieldName
+  fieldName,
 }: SearchFieldPropTypes) => {
-  const [isFocused, setIsFocused] = useState(false);
+  // const [isFocused, setIsFocused] = useState(false);
   const [searchText, setSearchText] = useState("");
 
   const handleChange = useCallback(
@@ -46,8 +46,7 @@ const SearchField = ({
         className={`${isColored ? "bg-main_bg" : ""} h-[100%] aspect-square`}
         onClick={handleSubmitSearch}
       >
-
-        <SearchIcon color={`${isColored ? "#FFFFFF":"#858181"}`} />
+        <SearchIcon color={`${isColored ? "#FFFFFF" : "#858181"}`} />
       </button>
       <input
         placeholder={placeholder}

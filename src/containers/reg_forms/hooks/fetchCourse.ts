@@ -1,15 +1,17 @@
-import { useCallback, useEffect } from "react";
+import { 
+  // useCallback, 
+  useEffect } from "react";
 import { selectedUniversityData } from "../../../utils/dummyData";
 import {
   CourseType,
-  CoursesType,
-  GradesType,
+  // CoursesType,
+  // GradesType,
 } from "../../../app/slices/oracleRegistration/types";
 import {
-  selectCourseData,
+  // selectCourseData,
   setCourseData,
 } from "../../../app/slices/oracleRegistration/registrationSlice";
-import { useAppDispatch, useAppSelector } from "../../../app/hooks/regHook";
+import { useAppDispatch,  } from "../../../app/hooks/regHook";
 
 type ParamTypes = {
   courseId: string;

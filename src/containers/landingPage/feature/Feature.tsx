@@ -1,4 +1,3 @@
-import { ReactElement } from "react";
 import MainButton from "../../../components/buttons/MainButton";
 
 type Props = {

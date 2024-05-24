@@ -1,10 +1,14 @@
 import SearchField from "../../components/fields/SearchField";
-import { Fragment, ReactElement } from "react";
-import { Dialog, Menu, Transition } from "@headlessui/react";
+import { Fragment, 
+  // ReactElement 
+} from "react";
+import { 
+  // Dialog, Menu, 
+  Transition } from "@headlessui/react";
 import OutlineButton from "../../components/buttons/OutlineButton";
 import SearchResultContainer from "../searchResults/SearchResultContainer";
 import { searchResults, tagData, topSearches } from "../../utils/dummyData";
-import { useListenForOutsideClicks } from "../../shared/hooks/listenForOutsideClicks";
+// import { useListenForOutsideClicks } from "../../shared/hooks/listenForOutsideClicks";
 
 type SearchDropDownPropTypes = {
   isOpen: boolean;

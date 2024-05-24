@@ -8,3 +8,5 @@ const SchoolSchema = Yup.object().shape({
       .required('Required'),
     jambScore: Yup.number().required('Required'),
   });
+
+export default SchoolSchema

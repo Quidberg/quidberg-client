@@ -1,5 +1,5 @@
 import CheckedIcon from "../../assets/comps/CheckedIcon";
-import { UnCheckedBlack, UnCheckedIcon } from "../../assets/svg";
+import { UnCheckedBlack } from "../../assets/svg";
 
 const TextCheckBox = ({
   isChecked,
