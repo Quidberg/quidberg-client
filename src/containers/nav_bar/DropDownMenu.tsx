@@ -73,7 +73,7 @@ const DropDownMenu = ({
                     handleClose={handleClose}
                   />
                   <MenuCard
-                    link={AppRoutes.examination.index}
+                    link={AppRoutes.examinationSimulator.index}
                     title="Examination Simulator"
                     description="Assess yourself with our Examination simulator."
                     Icon={ExamIcon}

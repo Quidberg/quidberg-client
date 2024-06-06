@@ -2,14 +2,14 @@ export const PRF = "";
 
 export const AppRoutes = {
   statistics: {
-    analysis: `${PRF}/statistics`,
+    analysis: `${PRF}/oracle`,
     registration: {
-      setup: `${PRF}/statistics/registration`,
-      summary: `${PRF}/statistics/registration/summary`,
+      setup: `${PRF}/oracle/registration`,
+      summary: `${PRF}/oracle/registration/summary`,
     },
   },
-  landingPage:{
-    index: `${PRF}/`
+  landingPage: {
+    index: `${PRF}/`,
   },
   dashboard: {
     index: `${PRF}/dashboard`,
@@ -19,11 +19,10 @@ export const AppRoutes = {
     classes: `${PRF}/classes`,
     resources: `${PRF}/resources`,
   },
-  examination:{
-    index: `${PRF}/examination`,
-
+  examinationSimulator: {
+    index: `${PRF}/examination-simulator`,
   },
-  consultancy:{
+  consultancy: {
     index: `${PRF}/consultancy`,
   },
 
@@ -34,7 +33,7 @@ export const AppRoutes = {
     index: `${PRF}/subscription`,
   },
   pricing: {
-    index: `${PRF}/pricing`
+    index: `${PRF}/pricing`,
   },
   settings: {
     index: `${PRF}/settings`,
@@ -43,6 +42,5 @@ export const AppRoutes = {
     signin: `${PRF}/signin`,
     login: `${PRF}/login`,
     signup: `${PRF}/signup`,
-
-  }
+  },
 };

@@ -40,7 +40,7 @@ const RoutesSwitches = ({}) => {
           />
 
           <Route
-            path={AppRoutes.examination.index}
+            path={AppRoutes.examinationSimulator.index}
             element={<ExaminationSimulator />}
           />
           <Route

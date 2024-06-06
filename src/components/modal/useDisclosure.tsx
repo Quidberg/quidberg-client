@@ -15,18 +15,21 @@ import { useState } from "react";
  * @property {Function} toggle - A function that toggles the `isOpen` value
  *                                between `true` and `false`.
  */
+
+type DisclosureAction = ()=> void ;
+
 export const useDisclosure = (initialValue?: boolean) => {
   const [isOpen, setIsOpen] = useState(initialValue || false);
 
-  const close = () => {
+  const close:DisclosureAction = () => {
     setIsOpen(false);
   };
 
-  const open = () => {
+  const open:DisclosureAction = () => {
     setIsOpen(true);
   };
 
-  const toggle = () => {
+  const toggle:DisclosureAction = () => {
     setIsOpen((prev) => !prev);
   };
 

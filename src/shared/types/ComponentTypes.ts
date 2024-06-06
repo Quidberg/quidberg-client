@@ -3,7 +3,7 @@ import { ReactElement } from "react";
 export interface ButtonPropsType {
   children: string | ReactElement;
   className?: string;
-  onClick?: () => void;
+  onClick?: (id?:any) => void;
   isOutlined?: boolean;
   textColor?: string;
   bgColor?: string;

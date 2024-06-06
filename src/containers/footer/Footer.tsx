@@ -1,10 +1,7 @@
-
 const Footer = () => {
-  return (
-    <div>
-        
-    </div>
-  )
-}
+  return <div className="h-40 w-full bg-light_gray_bg">
 
-export default Footer
+  </div>;
+};
+
+export default Footer;

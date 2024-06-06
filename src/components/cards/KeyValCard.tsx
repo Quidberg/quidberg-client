@@ -24,7 +24,7 @@ const KeyValCard = ({ name, value, isChange }: KeyValPropType) => {
             ) : (
               <div className="flex items-center overflow-x-hidden gap-1 ">
                 {value.map((val, i) => (
-                  <div className="flex items-center ">
+                  <div className="flex items-center " key={`${val}${i}`}>
                     <p className="">{val}</p>
                     <div
                       className={`h-4 w-[1px] bg-subtitle_color ml-1 ${

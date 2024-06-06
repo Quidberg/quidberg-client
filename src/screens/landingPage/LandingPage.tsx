@@ -11,6 +11,8 @@ import Testimonial from "../../containers/landingPage/testimonial/Testimonial";
 import listenForScroll from "../../shared/hooks/listenForScroll";
 import { useEffect, useRef, useState } from "react";
 import { ClassAd, ExamAd, OracleAd, SlateCurve } from "../../assets/png";
+import Footer from "../../containers/footer/Footer";
+import { NavLinksEnum } from "../../utils/enums/LinksEnum";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -28,7 +30,9 @@ const LandingPage = () => {
   const handleAuth = (type: AuthRegType) => {
     openAuthModal(type);
   };
-  const handleFeatureNav = () => {};
+  const handleFeatureNav = () => {
+
+  };
 
   useEffect(() => {
     if (!navRef.current && !scrollY) return;
@@ -44,7 +48,7 @@ const LandingPage = () => {
   }, [navRef, scrollY]);
 
   return (
-    <div className=" mb-20">
+    <div className="">
       {/* modal */}
       <AuthModal isOpen={isAuthModalOpen} close={closeAuthModal} />
 
@@ -63,17 +67,18 @@ const LandingPage = () => {
         <img src={SlateCurve} alt="" className="w-full -mt-[1px]" />
       </section>
 
-      <main className="px-5 flex flex-col gap-8">
+      <main className=" flex flex-col gap-8 mb-20">
         {/* carousel */}
         <section></section>
 
         {/* features */}
-        <section className="flex flex-col items-center w-full mt-20 xl:mt-25  gap-14 md:gap-20 xl:gap-30">
+        <section className="flex flex-col items-center w-full mt-20 xl:mt-25 gap-20 xl:gap-30">
           <Feature
             image={OracleAd}
             title="Seeking admission and have no idea what University or Course would be a good fit for you? We've got you covered."
             description="Our ORACLE feature gives you analysis on your chances and eligibility of admission into any university. We also recommend other Universities that might fit your needs."
             handleFeatureNav={handleFeatureNav}
+            id={NavLinksEnum.oracle}
             navButtonText="Try Oracle Now"
           />
           <Feature
@@ -81,6 +86,7 @@ const LandingPage = () => {
             title="Learn in an exciting, precise and efficient way."
             description="Our goal with learning is to prepare you for the next step in your educational journey. We ensure our classes are updated and streamlined to ease your learning process."
             handleFeatureNav={handleFeatureNav}
+            id={NavLinksEnum.classes}
             navButtonText="Start Learning"
             textPosition="left"
             buttonColor="bg-black"
@@ -91,17 +97,18 @@ const LandingPage = () => {
             title="Ace your Exams with Updated Solutions and Resources."
             description="We procure up-to-date questions on all Examinations and provide accurate solutions (not just A,B,C,D) attached with additional resources to learn from. We attach detailed solutions and other examples so You never miss a question again."
             handleFeatureNav={handleFeatureNav}
+            id={NavLinksEnum.examinationSimulator}
             navButtonText="Start Practicing"
           />
         </section>
 
         {/* testimonials */}
-        <section className="flex flex-col justify-center gap-6 items-center mt-8 sm:mt-15 md:mt-20 xl:mt-25 ">
+        <section className="flex flex-col justify-center gap-6 items-center mt-8 sm:mt-15 md:mt-20 xl:mt-25 px-5">
           <h1 className="text-lg md:text-xl font-semibold">
             {"What People have to say about Quidberg"}
           </h1>
 
-          <div className="w-full max-w-[800px] grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 xl:w-[70%] gap-7">
+          <div className="w-full max-w-[1000px] grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 xl:w-[70%] gap-7">
             <Testimonial
               authorName="Praise Ayodele"
               role="Teacher"
@@ -131,9 +138,9 @@ const LandingPage = () => {
             </Testimonial>
           </div>
         </section>
-
-        {/* footer */}
       </main>
+      {/* footer */}
+      <Footer />
     </div>
   );
 };

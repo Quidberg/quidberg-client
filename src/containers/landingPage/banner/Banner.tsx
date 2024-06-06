@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { AuthRegType } from "../../../app/slices/auth/types";
 import ExamIcon from "../../../assets/comps/ExamIcon";
 import StatIcon from "../../../assets/comps/StatIcon";
@@ -7,7 +6,6 @@ import RoundedButton from "../../../components/buttons/RoundedButton";
 import LineHeader from "../../../components/tags/LineHeader";
 import { AuthType } from "../../../utils/enums/AuthEnum";
 import { NavLinksEnum } from "../../../utils/enums/LinksEnum";
-import { navLinks } from "../../nav_bar/Links";
 import ExploreButton from "./ExploreButton";
 
 type Props = {
@@ -15,18 +13,8 @@ type Props = {
 };
 
 const Banner = ({ handleAuth }: Props) => {
-  const navigate = useNavigate();
-  const handleExploreNav = (id: string) => {
-    const nav = navLinks?.find(
-      (link) => link.alias.toLowerCase() === id.toLowerCase()
-    );
-    if (nav) {
-      navigate(nav.link);
-    }
-  };
-
   return (
-    <div className=" w-full flex flex-col gap-6 items-center text-center sm:px-5">
+    <div className=" w-full flex flex-col gap-6 items-center text-center sm:px-5 px-4 py-6">
       <h1 className="text-xl md:text-3xl xl:text-5xl font-bold text-main_bg">
         {"Enhancing the Quality of Education."}
       </h1>
@@ -68,21 +56,18 @@ const Banner = ({ handleAuth }: Props) => {
         <div className="flex gap-3 flex-wrap justify-center">
           <ExploreButton
             image={TutorIcon}
-            handleExplore={handleExploreNav}
             id={NavLinksEnum.classes}
           >
             {"Classes"}
           </ExploreButton>
           <ExploreButton
             image={ExamIcon}
-            handleExplore={handleExploreNav}
-            id={NavLinksEnum.examination}
+            id={NavLinksEnum.examinationSimulator}
           >
             {"Exam Simulator"}
           </ExploreButton>
           <ExploreButton
             image={StatIcon}
-            handleExplore={handleExploreNav}
             id={NavLinksEnum.oracle}
           >
             {"Oracle"}

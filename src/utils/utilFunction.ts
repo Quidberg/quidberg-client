@@ -1,3 +1,4 @@
+  
 export function capitalize(str?: string) {
   if (!str) return "";
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -57,6 +58,8 @@ export function numToCurrency({ value, currency}:{currency: string, value:number
 
   return formatCurrency.format(value)
 }
+
+
 
 // export function curToNumber({ value, currency}:{currency: string, value:string}){
 //   let formatCurrency = new Intl.NumberFormat('en-NG', {
