@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { navLinks } from "../../containers/nav_bar/Links";
+import { navLinks } from "../../components/containers/nav_bar/Links";
 
 export const useHandleNavToLink = () => {
   const navigateTo = useNavigate();

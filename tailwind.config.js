@@ -32,6 +32,7 @@ export default {
         xl: "1440px",
       },
       colors: {
+        primary: "#1DA1F2",
         main_bg: "#1DA1F2",
         light_bg: "#FFFFFF",
         light_nav_bg: "#D9D9D9",

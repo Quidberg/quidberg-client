@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { FormErrorType } from "../../app/slices/oracleRegistration/types";
+import { FormErrorType } from "../../../app/slices/oracleRegistration/types";
 import { DropListType } from "./RegistrationDataTypes";
 
 export interface BasicValueType {
@@ -7,7 +7,7 @@ export interface BasicValueType {
   id: string;
 }
 
-export interface InputFieldPropsType  {
+export interface InputFieldPropsType {
   placeholder?: string;
   title?: string;
   className?: string;

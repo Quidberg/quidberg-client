@@ -13,6 +13,7 @@ export const AppRoutes = {
   },
   dashboard: {
     index: `${PRF}/dashboard`,
+    admin: `${PRF}/adminx`,
   },
   classesAndResources: {
     // index: `${PRF}/classes`,
@@ -42,5 +43,6 @@ export const AppRoutes = {
     signin: `${PRF}/signin`,
     login: `${PRF}/login`,
     signup: `${PRF}/signup`,
+    adminSignIn: `${PRF}/adminx-signin`
   },
 };
