@@ -1,5 +1,7 @@
-import { Fragment, } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { Button } from "../buttons/Button";
+import CloseIcon from "../../../assets/comps/CloseIcon";
 
 export interface ModalCompProps {
   isOpen: boolean;
@@ -7,7 +9,8 @@ export interface ModalCompProps {
   children: JSX.Element;
   dialogClassName?: string;
   shouldPreventUserFromClosing?: boolean; // specifies if user should not be able to close the modal.
-};
+  showCloseButton?: boolean;
+}
 
 export const Modal = ({
   isOpen,
@@ -15,6 +18,7 @@ export const Modal = ({
   dialogClassName,
   shouldPreventUserFromClosing,
   close,
+  showCloseButton,
 }: ModalCompProps) => {
   const handleClose = shouldPreventUserFromClosing
     ? () => {
@@ -24,7 +28,11 @@ export const Modal = ({
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-[292929]" onClose={handleClose}>
+      <Dialog
+        as="div"
+        className="relative z-[292929]"
+        onClose={handleClose}
+      >
         {/* overlay */}
         <Transition.Child
           as={Fragment}
@@ -56,6 +64,17 @@ export const Modal = ({
                   dialogClassName ? dialogClassName : ""
                 }`}
               >
+                {showCloseButton && (
+                  <div className="w-full flex justify-end px-3">
+                    <Button
+                      className="px-1"
+                      variant={"plain"}
+                      onClick={handleClose}
+                    >
+                      {<CloseIcon />}
+                    </Button>
+                  </div>
+                )}
                 {children}
               </Dialog.Panel>
             </Transition.Child>

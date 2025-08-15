@@ -31,9 +31,9 @@ const Registration = () => {
   ];
 
   return (
-    <main className="flex flex-col w-full items-center ">
-      <section className=" flex flex-col gap-4 w-full justify-center items-center ">
-        <nav className="relative flex items-center py-6 w-full h-[30px] md:gap-4 xl:gap-6">
+    <main className="flex flex-col w-full items-center relative flex-1">
+      <section className=" flex flex-col gap-4 w-full items-center flex-1 bg relative">
+        <nav className=" sticky top-0 flex items-center py-6 w-full h-[30px] md:gap-4 xl:gap-6 backdrop-blur-md bg-light_pry_bg/30">
           {Boolean(currentRegStep) && (
             <BackButton className="w-10 h-10" handleBackNav={handleBackStep} />
           )}

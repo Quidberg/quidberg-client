@@ -12,11 +12,14 @@ export const AppRoutes = {
     index: `${PRF}/`,
   },
   dashboard: {
-    index: `${PRF}/dashboard`,
+    index: `${PRF}/my-learning`,
     admin: `${PRF}/adminx`,
   },
   classesAndResources: {
     // index: `${PRF}/classes`,
+    learning: `${PRF}/explore-learning`,
+    tutorials: `${PRF}/tutorials`,
+    solutions: `${PRF}/solutions`,
     classes: `${PRF}/classes`,
     resources: `${PRF}/resources`,
   },
@@ -43,6 +46,6 @@ export const AppRoutes = {
     signin: `${PRF}/signin`,
     login: `${PRF}/login`,
     signup: `${PRF}/signup`,
-    adminSignIn: `${PRF}/adminx-signin`
+    adminSignIn: `${PRF}/adminx-signin`,
   },
 };

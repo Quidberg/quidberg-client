@@ -1,15 +1,15 @@
-import { ReactElement } from "react";
+import { ButtonHTMLAttributes, ReactElement } from "react";
 
 export interface ButtonPropsType {
   children: string | ReactElement;
   className?: string;
-  onClick?: (id?:any) => void;
+  onClick?: ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
   isOutlined?: boolean;
   textColor?: string;
   bgColor?: string;
   outlineColor?: string;
-  disabled?: boolean
-  type?: any
+  disabled?: boolean;
+  type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
 }
 
 export interface SelectorType {
@@ -25,5 +25,7 @@ export interface SearchResultsType {
 }
 
 export interface TagType {
-  text: string
+  text: string;
 }
+
+export type LearningType = "classes" | "tutorials" | "solutions";

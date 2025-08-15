@@ -2,7 +2,7 @@ import { memo, useState } from "react";
 import FormCard from "../../../ui/cards/FormCard";
 import FieldWithArrowDown from "../../../ui/fields/FieldWithArrowDown";
 import { DropDownFieldDataType } from "../../../../shared/types/FieldTypes";
-import InputField from "../../../ui/fields/InputField";
+// import InputField from "../../../ui/fields/InputField";
 import RoundedButton from "../../../ui/buttons/RoundedButton";
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks/regHook";
 import useNavRegPage from "../../../../shared/hooks/navRegPage";
@@ -22,8 +22,8 @@ import {
 } from "../../../../app/slices/oracleRegistration/registrationSlice";
 import { Form, Formik } from "formik";
 // import { fetchCourse } from "../hooks/fetchCourse";
-import { fetchUniversities } from "../hooks/fetchUniversities";
-import { fetchUniversity } from "../hooks/fetchUniversity";
+import { useFetchUniversities } from "../hooks/fetchUniversities";
+import { useFetchUniversity } from "../hooks/fetchUniversity";
 import { fieldInfo } from "./fieldInfo";
 
 const formItems: { [index: string]: DropDownFieldDataType } = {
@@ -81,8 +81,8 @@ const SchoolRegistration = () => {
   const [errors, setErrors] = useState<SchoolRegFormErrors>(initialErrors);
 
   // HOOKS
-  const { universitiesDataStore } = fetchUniversities();
-  const { universityDataStore } = fetchUniversity({
+  const { universitiesDataStore } = useFetchUniversities();
+  const { universityDataStore } = useFetchUniversity({
     universityId: formValState?.university?.id || null,
   });
   // const courseData = fetchCourse({
@@ -149,32 +149,33 @@ const SchoolRegistration = () => {
     setErrors(initialErrors);
   };
 
-  const handleJambScoreChange = (e: any) => {
-    const jambScore: number = e.target.value;
-    setFormValState({
-      ...formValState,
-      jambScore: { ...formValState.jambScore, value: jambScore },
-    });
-    if (jambScore > 400) {
-      return setErrors({
-        ...errors,
-        jambScore: [
-          { type: "limit", message: "Jamb score cannot be greater than 400" },
-        ],
-      });
-    }
+  // const handleJambScoreChange = (e: any) => {
+  //   const jambScore: number = e.target.value;
+  //   setFormValState({
+  //     ...formValState,
+  //     jambScore: { ...formValState.jambScore, value: jambScore },
+  //   });
 
-    if (jambScore < 0) {
-      return setErrors({
-        ...errors,
-        jambScore: [
-          { type: "limit", message: "Jamb score cannot be negative" },
-        ],
-      });
-    }
+  //   if (jambScore > 400) {
+  //     return setErrors({
+  //       ...errors,
+  //       jambScore: [
+  //         { type: "limit", message: "Jamb score cannot be greater than 400" },
+  //       ],
+  //     });
+  //   }
 
-    setErrors({ ...errors, jambScore: null });
-  };
+  //   if (jambScore < 0) {
+  //     return setErrors({
+  //       ...errors,
+  //       jambScore: [
+  //         { type: "limit", message: "Jamb score cannot be negative" },
+  //       ],
+  //     });
+  //   }
+
+  //   setErrors({ ...errors, jambScore: null });
+  // };
 
   // VALIDATIONS
   const validateForm = () =>
@@ -186,15 +187,15 @@ const SchoolRegistration = () => {
       const course = formValState["course"];
       let errContent;
 
-      if (!jambScore?.value) {
-        errContent = {
-          message: "Please Enter Jamb Score",
-          type: "empty field",
-        };
-        errors.jambScore = errors.jambScore
-          ? [...errors.jambScore, errContent]
-          : [errContent];
-      }
+      // if (!jambScore?.value) {
+      //   errContent = {
+      //     message: "Please Enter Jamb Score",
+      //     type: "empty field",
+      //   };
+      //   errors.jambScore = errors.jambScore
+      //     ? [...errors.jambScore, errContent]
+      //     : [errContent];
+      // }
 
       if (!university) {
         errContent = {
@@ -256,7 +257,7 @@ const SchoolRegistration = () => {
         }) => (
           <FormCard
             title="University of Choice"
-            subtitle="Fill in your choice school"
+            subtitle="Fill in your School and Course of Choice"
             className="justify-center items-center py-6 "
             childrenClass="flex items-center w-full "
           >
@@ -297,22 +298,9 @@ const SchoolRegistration = () => {
                   }`}
                   handleFilterList={handleSearchFilterList}
                   handleDropDownClick={handleCourseDropDown}
-                  isDropDownLocked={!Boolean(formValState["university"]?.name)}
+                  isDropDownLocked={!formValState["university"]?.name}
                   error={errors["course"]}
                   infoModalContent={fieldInfo.courseInfo}
-                />
-
-                <InputField
-                  title={"JAMB Score"}
-                  placeholder={"Enter your JAMB score"}
-                  className="w-full placeholder:text-light_font"
-                  type="number"
-                  id="jambscore"
-                  value={formValState?.jambScore?.value || ""}
-                  fieldName="jambScore"
-                  handleChange={handleJambScoreChange}
-                  error={errors["jambScore"]}
-                  infoModalContent={fieldInfo.jambInfo}
                 />
               </section>{" "}
               <section>

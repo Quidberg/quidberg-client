@@ -14,7 +14,8 @@ const AppLayout = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   // const [authType, setAuthType] = useState<AuthRegType>(null)
-  const { openAuthModal, closeAuthModal, isAuthModalOpen } = useAuthModal();
+  const { openAuthModal, closeAuthModal, isAuthModalOpen } =
+    useAuthModal();
 
   const handleNav = (link: string) => {
     // Trigger Navigation when link is clicked
@@ -31,20 +32,22 @@ const AppLayout = () => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       {/* MODALS */}
       <AuthModal isOpen={isAuthModalOpen} close={closeAuthModal} />
 
       {/* TOP MENU */}
-      <TopNav
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        navigate={navigate}
-        navLinks={navLinks}
-        handleNav={handleNav}
-        currenPath={currentPath}
-        handleAuth={handleAuth}
-      />
+      <div className="relative ">
+        <TopNav
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          navigate={navigate}
+          navLinks={navLinks}
+          handleNav={handleNav}
+          currenPath={currentPath}
+          handleAuth={handleAuth}
+        />
+      </div>
 
       <section className="relative h-screen flex flex-row ">
         {/* SIDE MENU */}

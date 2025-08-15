@@ -3,9 +3,7 @@ import EditButton from "../../ui/buttons/EditButton";
 import FormCard from "../../ui/cards/FormCard";
 // import LinkButton from "../../buttons/LinkButton";
 import ViewMore from "../../ui/toggleview/ViewMore";
-import KeyValCard, {
-  KeyValPropType,
-} from "../../ui/cards/KeyValCard";
+import KeyValCard, { KeyValPropType } from "../../ui/cards/KeyValCard";
 
 type UserDataSnippetType = {
   keyVal: KeyValPropType[];
@@ -19,7 +17,7 @@ const showIconAndText = (isShown: boolean, handleView: () => void) => {
 
 const UserDataSnippet = ({
   keyVal,
-  isShown,
+  isShown = true,
   handleViewSnippet,
 }: UserDataSnippetType) => {
   const school = keyVal.find((kv) => kv.name === "university")?.value;
@@ -36,46 +34,46 @@ const UserDataSnippet = ({
         </h1>
       </header>
 
-      <Disclosure>
-        <FormCard className="max-w-[600px]">
-          <div className="w-full flex justify-between  mb-6 font-normal">
-            {showIconAndText(isShown, handleViewSnippet)}
-            <EditButton text={"Edit"} />
-          </div>
+      {/* <Disclosure> */}
+      <FormCard className="max-w-[600px]">
+        <div className="w-full flex justify-between  mb-6 font-normal">
+          {/* {showIconAndText(isShown, handleViewSnippet)} */}
+          {/* <EditButton text={"Edit"} /> */}
+        </div>
 
-          {isShown ? (
-            <>
-              {/* FULL VIEW */}
-              <section className="flex flex-col gap-2 w-full">
-                {keyVal?.map(({ name, value, isChange }) => (
-                  <KeyValCard
-                    name={name}
-                    value={value}
-                    key={name}
-                    isChange={isChange}
-                  />
-                ))}
-              </section>
-              {/* 
+        {isShown ? (
+          <>
+            {/* FULL VIEW */}
+            <section className="flex flex-col gap-2 w-full">
+              {keyVal?.map(({ name, value, isChange }) => (
+                <KeyValCard
+                  name={name}
+                  value={value}
+                  key={name}
+                  isChange={isChange}
+                />
+              ))}
+            </section>
+            {/* 
             <section className="flex justify-center mt-9">
               <LinkButton
                 text={`Read about ${capitalize(course)} in ${school}`}
                 handleLink={() => {}}
               />
             </section> */}
-            </>
-          ) : (
-            <>
-              {/* COLLAPSED VIEW */}
-              <section className="flex gap-3 items-center justify-center">
-                <button className="capitalize text-main_bg">{school}</button>
-                <div className="h-6 w-[1px] bg-subtitle_color"></div>
-                <button className="capitalize text-main_bg">{course}</button>
-              </section>
-            </>
-          )}
-        </FormCard>
-      </Disclosure>
+          </>
+        ) : (
+          <>
+            {/* COLLAPSED VIEW */}
+            <section className="flex gap-3 items-center justify-center">
+              <button className="capitalize text-main_bg">{school}</button>
+              <div className="h-6 w-[1px] bg-subtitle_color"></div>
+              <button className="capitalize text-main_bg">{course}</button>
+            </section>
+          </>
+        )}
+      </FormCard>
+      {/* </Disclosure> */}
     </div>
   );
 };

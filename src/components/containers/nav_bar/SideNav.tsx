@@ -7,7 +7,11 @@ type SideNavPropType = {
   currentPath: string;
 };
 
-const SideNav = ({ navLinks, handleNav, currentPath }: SideNavPropType) => {
+const SideNav = ({
+  navLinks,
+  handleNav,
+  currentPath,
+}: SideNavPropType) => {
   return (
     <div
       className={`hidden md:flex fixed z-side_bar top-[100px] left-3  h-fit  flex-col gap-4 md:gap-1 px-1 items-start  
@@ -15,7 +19,7 @@ const SideNav = ({ navLinks, handleNav, currentPath }: SideNavPropType) => {
         `}
     >
       {navLinks?.map(({ name, alias, link, Icon }) => {
-        const isActive = currentPath === link;
+        const isActive = currentPath.includes(name);
         return (
           <NavLinkButton
             link={link}
@@ -23,7 +27,7 @@ const SideNav = ({ navLinks, handleNav, currentPath }: SideNavPropType) => {
             key={name}
             handleNav={handleNav}
             Icon={Icon}
-            title={name}
+            title={alias}
             alias={alias}
           />
         );

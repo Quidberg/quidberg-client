@@ -66,7 +66,7 @@ const DropDownMenu = ({
                 </h1>
                 <div className="flex flex-col justify-start items-start gap-2">
                   <MenuCard
-                    link={AppRoutes.classesAndResources.classes}
+                    link={AppRoutes.classesAndResources.learning}
                     title="Classes and Tutorial"
                     description="Learn with the best resources."
                     Icon={TutorIcon}
@@ -156,7 +156,9 @@ const DropDownMenu = ({
                 />
               </Disclosure.Button>
               <Disclosure.Panel className="flex flex-col gap-3 px-4 pt-4 pb-2 text-sm text-gray-500">
-                <h1 className="font-medium text-lg">We love to help</h1>
+                <h1 className="font-medium text-lg">
+                  We love to help
+                </h1>
                 <div className="flex flex-col justify-start items-start gap-2">
                   <MenuCard
                     link={""}

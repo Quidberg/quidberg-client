@@ -7,7 +7,7 @@ type formCardProps = {
   className?: string;
   isLocked?: boolean;
   headerColor?: string;
-  childrenClass?: string
+  childrenClass?: string;
 };
 
 const FormCard = ({
@@ -17,7 +17,7 @@ const FormCard = ({
   className,
   isLocked,
   headerColor,
-  childrenClass
+  childrenClass,
 }: formCardProps) => {
   return (
     <div
@@ -41,7 +41,9 @@ const FormCard = ({
           )}
         </header>
       )}
-      <div className={`w-full px-3 md:px-6 ${className} ${childrenClass}`}>{children}</div>
+      <div className={`w-full px-3 md:px-6 ${className} ${childrenClass}`}>
+        {children}
+      </div>
     </div>
   );
 };

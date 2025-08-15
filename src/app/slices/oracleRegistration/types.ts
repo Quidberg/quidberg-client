@@ -1,5 +1,5 @@
-import { BasicValueType } from "../../../../shared/types/FieldTypes";
-import { DropListType } from "../../../../shared/types/RegistrationDataTypes";
+import { BasicValueType } from "../../../shared/types/FieldTypes";
+import { DropListType } from "../../../shared/types/RegistrationDataTypes";
 
 export interface BasicDataType {
   value: string;
@@ -13,6 +13,7 @@ export interface SubjectAndGrade {
 
 export interface ExaminationType {
   name: string;
+  title?: string;
   id: string;
   score?: number | null;
   subjects?: BasicValueType[];
@@ -24,6 +25,7 @@ export interface ExamTakenType {
   name: string;
   id: string;
   subjectsAndGrades?: Array<SubjectAndGrade>;
+  title?: string;
 }
 
 export interface SubjectTakenPayloadType {
@@ -84,7 +86,7 @@ export interface SelectedUniversityType {
     subjectsAccepted: { name: string; id: string }[];
   }[];
   grades: { name: string; id: string }[];
-  applicableExaminations: { name: string; id: string }[];
+  applicableExaminations: { name: string; id: string; title?: string }[];
 }
 
 export interface InitialRegStepStateType {
@@ -94,7 +96,7 @@ export interface InitialRegStepStateType {
   universityData: SelectedUniversityType | null;
   universitiesData: { name: string; id: string }[] | null;
   courseData: CourseType;
-  isRegSubmitted: Boolean;
+  isRegSubmitted: boolean;
 }
 
 export interface SchoolRegFormType {

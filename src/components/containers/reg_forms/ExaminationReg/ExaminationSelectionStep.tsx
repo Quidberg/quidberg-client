@@ -11,6 +11,7 @@ import {
   // setExaminations,
   // selectExaminationTaken,
   setExaminationTaken,
+  selectExaminationTaken,
 } from "../../../../app/slices/oracleRegistration/registrationSlice";
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks/regHook";
 import NoEntry from "../../../ui/info/NoEntry";
@@ -23,15 +24,13 @@ import { Modal } from "../../../ui/modal";
 import useAddExam from "./useAddExam";
 import useNavRegPage from "../../../../shared/hooks/navRegPage";
 import NoExamEntryModal from "../../modals/warningModal/NoExamEntryModal";
-import { fetchExamsData } from "../hooks/fetchExamsData";
-import watchSchoolRegStep from "../hooks/watchSchoolRegStep";
-import UpdatedDataModal from "../../modals/infoModal/UpdatedDataModal";
+import { useFetchExamsData } from "../hooks/fetchExamsData";
 // import GenericWarningModal from "../../modals/warningModal/GenericWarningModal";
 import RemoveExamWarningModal from "../../modals/warningModal/RemoveExamWarningModal";
 
 const ExaminationSelectionForm = () => {
   // const examinationTaken = useAppSelector(selectExaminationTaken);
-  const examinationTakenComponent = useAppSelector(selectExaminations);
+  const examinationTakenComponent = useAppSelector(selectExaminationTaken);
   const selectedUniversity = useAppSelector(selectUniversityData);
   const selectedCourse = useAppSelector(selectCourseData);
 
@@ -65,10 +64,10 @@ const ExaminationSelectionForm = () => {
     close: handleCloseRemoveExamWarningModal,
     open: openRemoveExamWarningModal,
   } = useDisclosure();
-  const { handleFetchExamsData } = fetchExamsData();
-  const { setSchoolUpdateFalse, isSchoolDataUpdated } = watchSchoolRegStep(
-    examinationTakenComponent
-  );
+  const { handleFetchExamsData } = useFetchExamsData();
+  // const { setSchoolUpdateFalse, isSchoolDataUpdated } = watchSchoolRegStep(
+  //   examinationTakenComponent
+  // );
 
   const handleAddExamModal = () => {
     openExamListModal();
@@ -106,6 +105,7 @@ const ExaminationSelectionForm = () => {
     setIsExamListEmpty(false);
 
     setExaminationList(
+      // updates the exam list before applying to exam taken list
       examinationList.map((exam) => {
         if (exam?.id === examSelected?.id)
           return { ...exam, isChecked: !exam?.isChecked };
@@ -124,7 +124,7 @@ const ExaminationSelectionForm = () => {
     const selectedExams: ExaminationType[] = [];
 
     examinationList.forEach((exam) => {
-      if (exam.isChecked) {
+      if (exam.isChecked || exam.isAlreadySelected) {
         selectedExams.push(exam);
       }
     });
@@ -193,6 +193,7 @@ const ExaminationSelectionForm = () => {
       <TitleWithSub
         title="Select Available Result Below"
         subtitle="Add available results to improve your analysis or skip this step"
+        className="mb-6"
       />
 
       {/* MODALS */}
@@ -217,10 +218,11 @@ const ExaminationSelectionForm = () => {
         proceed={handleNextStep}
         handleSelectExam={handleSelectExam}
       />
-      <UpdatedDataModal
+
+      {/* <UpdatedDataModal
         isOpen={isSchoolDataUpdated}
         close={setSchoolUpdateFalse}
-      />
+      /> */}
 
       <RemoveExamWarningModal
         close={handleCloseRemoveExamWarningModal}
@@ -239,7 +241,7 @@ const ExaminationSelectionForm = () => {
           examinationTakenComponent?.map((exam) => (
             <ExaminationEntryForm
               key={exam.name}
-              title={exam.name}
+              title={exam.title ?? exam.name}
               subtitle="Please fill in the field appropriately"
               total={selectedCourse?.subjectsAccepted.length || 2}
               id={exam?.id}

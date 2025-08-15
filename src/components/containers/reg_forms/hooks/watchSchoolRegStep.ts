@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useAppSelector } from "../../../../app/hooks/regHook";
 import {
   selectCourseData,
   selectUniversityData,
 } from "../../../../app/slices/oracleRegistration/registrationSlice";
 import { ExaminationType } from "../../../../app/slices/oracleRegistration/types";
+import { useAppSelector } from "../../../../app/hooks/regHook";
 
-const watchSchoolRegStep = (examData: Array<ExaminationType> | null) => {
+const useWatchSchoolRegStep = (examData: Array<ExaminationType> | null) => {
   const universityData = useAppSelector(selectUniversityData);
   const courseData = useAppSelector(selectCourseData);
   const [isSchoolDataUpdated, setIsSchoolDataUpdated] = useState(false);
@@ -16,12 +16,12 @@ const watchSchoolRegStep = (examData: Array<ExaminationType> | null) => {
   };
 
   useEffect(() => {
-    if (!Boolean(examData?.length)) return;
+    if (!examData?.length) return;
     console.log(examData);
     setIsSchoolDataUpdated(true);
-  }, [courseData, universityData]);
+  }, [courseData, universityData, examData]);
 
   return { isSchoolDataUpdated, setIsSchoolDataUpdated, setSchoolUpdateFalse };
 };
 
-export default watchSchoolRegStep;
+export default useWatchSchoolRegStep;

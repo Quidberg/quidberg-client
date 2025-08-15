@@ -13,12 +13,14 @@ export type KeyValPropType = {
 const KeyValCard = ({ name, value, isChange }: KeyValPropType) => {
   return (
     <div className="flex gap-2 xl:gap-6">
-      <p className="font-medium whitespace-nowrap">{`${capitalize(name)}:`}</p>
+      <p className="font-medium opacity-70 whitespace-nowrap">{`${capitalize(
+        name
+      )}:`}</p>
       {
         <div className="flex flex-1 items-center justify-start gap-3 w-[50px] max-w-fit">
-          <div className="w-full flex gap-1 text-main_bg overflow-clip">
+          <div className="w-full flex gap-1 overflow-clip font-semibold text-main_font/70">
             {typeof value === "string" ? (
-              <p className=" capitalize truncate text-ellipsis font-normal">
+              <p className=" capitalize truncate text-ellipsis ">
                 {capitalize(value)}
               </p>
             ) : (

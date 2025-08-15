@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ExaminationType } from "../../../../app/slices/oracleRegistration/types";
 
-const genSubAndGrade = (arr: any) => {
+const genSubAndGrade = (arr: any[]) => {
   return [
     ...Array.from({ length: arr?.length }, (_, i) => {
       return {
@@ -28,7 +28,7 @@ const useAddExam = () => {
           ...examTakenList,
           {
             ...examSelected,
-            subjectsAndGrades: genSubAndGrade(examSelected?.subjects),
+            subjectsAndGrades: genSubAndGrade(examSelected?.subjects ?? []),
           },
         ]);
   };

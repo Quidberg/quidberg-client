@@ -1,4 +1,4 @@
-import { useEffect, memo } from "react";
+import { memo } from "react";
 import FormCard from "../../../ui/cards/FormCard";
 import ExaminationEntryField, {
   ExamListPayloadType,
@@ -51,7 +51,7 @@ const ExaminationEntryForm = memo(
       dispatch(setSubjectsAndGrades({ examId: id, type, value, subjectId }));
     };
 
-    useEffect(() => {}, [examData]);
+    // useEffect(() => {}, [examData]);
 
     return (
       <FormCard

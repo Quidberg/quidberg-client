@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { BurgerMenu, CloseGreyIcon, ThreeDotMenu } from "../../../assets/svg";
+import {
+  BurgerMenu,
+  CloseGreyIcon,
+  ThreeDotMenu,
+} from "../../../assets/svg";
 import {
   // AppRoutes,
   PRF,
@@ -16,6 +20,7 @@ import SearchButton from "../../ui/buttons/SearchButton";
 import { DropDownContentEnum } from "../../../utils/enums/NavBarEnum";
 import { useListenForOutsideClicks } from "../../../shared/hooks/listenForOutsideClicks";
 import { AuthType } from "../../../utils/enums/AuthEnum";
+import { cn } from "../../../utils";
 
 type TopNavPropTypes = {
   isOpen: boolean;
@@ -47,7 +52,9 @@ const TopNav = ({
     // setAuth
   ] = useState(false);
   // const [isDropDownActive, setIsDropDownActive] = useState(false);
-  const [dropDownContent, setDropDownContent] = useState<null | string>(null);
+  const [dropDownContent, setDropDownContent] = useState<
+    null | string
+  >(null);
 
   // HOOKS
   const { dropdownRef } = useListenForOutsideClicks(() => {
@@ -88,7 +95,11 @@ const TopNav = ({
         {/* TOGGLED MENU SMALL DEVs */}
         <button onClick={toggleMenu} className={`md:hidden`}>
           {isOpen ? (
-            <img src={CloseGreyIcon} alt="close" className="w-5 h-4" />
+            <img
+              src={CloseGreyIcon}
+              alt="close"
+              className="w-5 h-4"
+            />
           ) : (
             <img src={BurgerMenu} alt="menu" className="w-5 h-4" />
           )}
@@ -108,14 +119,18 @@ const TopNav = ({
         <div ref={dropdownRef}>
           {
             <SearchButton
-              placeholder={"Search Courses, Tutorials, Resources, Information"}
+              placeholder={
+                "Search Courses, Tutorials, Resources, Information"
+              }
               handleSearch={handleNavSearchButton}
             />
           }
           {/* BOTTOM SECTION FOR DROP DOWN MENUS */}
           <div>
             <SearchDropDown
-              isOpen={dropDownContent === DropDownContentEnum.SearchDropDown}
+              isOpen={
+                dropDownContent === DropDownContentEnum.SearchDropDown
+              }
               handleClose={handleCloseDropDownMenu}
               showSearchResults={showSearchResults}
             />
@@ -127,7 +142,9 @@ const TopNav = ({
           <div className="flex flex-row items-center pl-4 text-sm md:text-base gap-3  ">
             <div className="w-[1.2px] h-7 bg-light_border_color"></div>
             {/* sign in */}
-            <button onClick={() => handleAuth(AuthType.signin)}>Sign In</button>
+            <button onClick={() => handleAuth(AuthType.signin)}>
+              Sign In
+            </button>
 
             {/* sign up */}
             <button
@@ -145,7 +162,7 @@ const TopNav = ({
       {auth && (
         // display if user authenticated
         <button
-          className={`md:hidden ${isOpen && "hidden"}`}
+          className={cn(`md:hidden `, isOpen && "hidden")}
           onClick={() => dispatch(showModal("filterModal"))}
         >
           <img src={ThreeDotMenu} alt="menu" className="w-6 h-5" />

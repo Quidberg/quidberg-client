@@ -2,7 +2,7 @@ import { ExaminationType } from "../app/slices/oracleRegistration/types";
 import { ExaminationList } from "./enums/RegistrationEnum";
 
 const generateIdFromField = (arr: any[]) => {
-  return arr.map((element: any, i) => ({
+  return arr.map((element: unknown, i) => ({
     ...element,
     id: (element.name ||= element.value ||= i),
   }));
@@ -79,9 +79,85 @@ export const selectedUniversityData = {
     { name: "F", id: "6" },
   ],
   applicableExaminations: [
-    { name: ExaminationList.WAEC, id: "WAEC" },
-    { name: ExaminationList.NECO, id: "NECO" },
+    {
+      name: ExaminationList.WAEC,
+      id: "WAEC",
+      title: "West Africa Examination Council (WAEC)",
+    },
+    {
+      name: ExaminationList.NECO,
+      id: "NECO",
+      title: "National Examination Council (NECO)",
+    },
+    {
+      name: ExaminationList.JAMB,
+      id: "JAMB",
+      title: "Joint Admissions and Matriculation Board (JAMB) ",
+    },
   ],
+};
+
+export const universityAndFacultyData = {
+  unilageng: {
+    subjectsAccepted: [
+      { name: "mathematics", id: "mathematics" },
+      { name: "english", id: "english" },
+      { name: "chemistry", id: "chemistry" },
+      { name: "biology", id: "biology" },
+    ],
+    courses: [
+      {
+        name: "MicroBiology",
+        id: "MicroBiology",
+        subjectsAccepted: [
+          { name: "mathematics", id: "mathematics" },
+          { name: "english", id: "english" },
+          { name: "chemistry", id: "chemistry" },
+          { name: "biology", id: "biology" },
+        ],
+      },
+      {
+        name: "Mechanical Engineering",
+        id: "Mechanical Engineering",
+        subjectsAccepted: [
+          { name: "mathematics", id: "mathematics" },
+          { name: "english", id: "english" },
+          { name: "further mathematics", id: "further mathematics" },
+          { name: "biology", id: "biology" },
+        ],
+      },
+      {
+        name: "Physics",
+        id: "Physics",
+        subjectsAccepted: [
+          { name: "mathematics", id: "mathematics" },
+          { name: "english", id: "english" },
+          { name: "further mathematics", id: "further mathematics" },
+          { name: "biology", id: "biology" },
+        ],
+      },
+      {
+        name: "Pharmacy",
+        id: "Pharmacy",
+        subjectsAccepted: [
+          { name: "mathematics", id: "mathematics" },
+          { name: "english", id: "english" },
+          { name: "chemistry", id: "chemistry" },
+          { name: "biology", id: "biology" },
+        ],
+      },
+      {
+        name: "Business Administration",
+        id: "Business Administration",
+        subjectsAccepted: [
+          { name: "mathematics", id: "mathematics" },
+          { name: "english", id: "english" },
+          { name: "commerce", id: "commerce" },
+        ],
+      },
+    ],
+    faculty: "engineering",
+  },
 };
 
 export const coursesData = [
@@ -92,7 +168,7 @@ export const coursesData = [
   { name: "Business Administration", id: "Business Administration" },
 ];
 
-var grades = [
+const grades = [
   { name: "A" },
   { name: "B" },
   { name: "C" },
@@ -103,6 +179,7 @@ var grades = [
 
 export const examinations: ExaminationType[] = [
   {
+    title: "West Africa Examination Council (WAEC)",
     name: ExaminationList.WAEC,
     id: "WAEC",
     subjects: [
@@ -113,6 +190,7 @@ export const examinations: ExaminationType[] = [
     grades: generateIdFromField(grades),
   },
   {
+    title: "National Examination Council (NECO)",
     name: ExaminationList.NECO,
     id: "NECO",
     subjects: [
@@ -124,6 +202,7 @@ export const examinations: ExaminationType[] = [
   },
   {
     name: ExaminationList.JAMB,
+    title: "Joint Admissions and Matriculation Board (JAMB)",
     id: "JAMB",
     score: null,
   },

@@ -45,7 +45,9 @@ const ExaminationCheckList = ({
         )}
 
         {!examinationList.some((exam) => !exam.isAlreadySelected) && (
-          <p className="text-center text-yellow-400 font-light">{`You have selected all Examinations available in ${selectedUniversity?.name}, Please close the modal`}</p>
+          <p className="text-center text-yellow-400 font-light">{`You have selected all Examinations available in ${
+            selectedUniversity?.name ?? ""
+          }, Please close the modal`}</p>
         )}
 
         <div className="flex flex-col ml-[3%] gap-4 w-full">
@@ -53,11 +55,12 @@ const ExaminationCheckList = ({
             <TextCheckBox
               key={exam?.name}
               isChecked={exam?.isChecked}
-              text={exam?.name}
+              text={exam?.title ?? exam?.name}
               onClick={() => {
                 handleCheck(exam);
               }}
               isInActive={exam?.isAlreadySelected}
+              showTextSelected="selected"
             />
           ))}
         </div>

@@ -71,10 +71,9 @@ export const regStepSlice = createSlice({
       state,
       action: PayloadAction<SubjectTakenPayloadType>
     ) => {
-      const examinations = state.examinations;
-      const { subjectId, value, type, examId } = action?.payload;
+      const examinations = state.formValues.examinationTaken;
+      const { subjectId, value, type, examId } = action?.payload ?? null;
 
-      console.log();
       const newExamTaken = examinations?.map((exam) => {
         if (exam?.id === examId) {
           return {
@@ -98,17 +97,18 @@ export const regStepSlice = createSlice({
         }
         return exam;
       });
-      state.examinations = newExamTaken ? newExamTaken : [];
+      state.formValues.examinationTaken = newExamTaken ? newExamTaken : [];
     },
 
     removeExaminationTaken: (state, action: PayloadAction<string>) => {
       const id: string = action.payload;
-      const examList = state.examinations;
+      console.log(id);
+      const examList = state.formValues.examinationTaken;
       if (!examList) return;
       const newExaminationTakenList = examList?.filter(
         (exam) => exam?.id !== id
       );
-      state.examinations = newExaminationTakenList;
+      state.formValues.examinationTaken = newExaminationTakenList;
     },
 
     setFormValues: (state, action: PayloadAction<RegFormValues>) => {
@@ -126,7 +126,7 @@ export const regStepSlice = createSlice({
       state.formValues.jambScore = action.payload;
     },
 
-    setIsRegSubmitted: (state, action: PayloadAction<Boolean>) => {
+    setIsRegSubmitted: (state, action: PayloadAction<boolean>) => {
       if (!action.payload) return;
       state.isRegSubmitted = action.payload;
     },
@@ -159,7 +159,7 @@ export const selectUniversityData = (state: RootStateType) =>
   state.regStep.universityData;
 export const selectCourseData = (state: RootStateType) =>
   state.regStep.courseData;
-  export const selectIsRegSubmitted = (state: RootStateType) =>
+export const selectIsRegSubmitted = (state: RootStateType) =>
   state.regStep.isRegSubmitted;
 
 export default regStepSlice.reducer;

@@ -7,6 +7,7 @@ import ExamIcon from "../../../assets/comps/ExamIcon";
 // import NewsIcon from "../../../assets/comps/NewsIcon";
 import SettingsIcon from "../../../assets/comps/SettingsIcon";
 import SubscriptionIcon from "../../../assets/comps/SubscriptionIcon";
+import { NavLinksEnum } from "../../../utils/enums/LinksEnum";
 
 export type NavLinksPropsType = {
   name: string;
@@ -18,32 +19,34 @@ export type NavLinksPropsType = {
 
 export const navLinks: NavLinksPropsType[] = [
   {
-    name: "Statistics and Analysis",
-    alias: "Oracle",
-    link: `${AppRoutes.statistics.analysis}`,
+    name: "my-learning",
+    alias: NavLinksEnum.dashboard,
+    link: AppRoutes.dashboard.index,
     isActive: false,
-    Icon: StatIcon,
+    Icon: DashboardIcon,
   },
+
   {
-    name: "Classes and Resources",
-    alias: "Classes",
-    link: AppRoutes.classesAndResources.classes,
+    name: "explore-learning",
+    alias: NavLinksEnum.classes,
+    link: AppRoutes.classesAndResources.learning,
     isActive: false,
     Icon: TutorIcon,
   },
   {
-    name: "Online Exams and Training",
-    alias: "examination simulator",
+    name: "examination-simulator",
+    alias: NavLinksEnum.examinationSimulator,
     link: AppRoutes.examinationSimulator.index,
     isActive: false,
     Icon: ExamIcon,
   },
+
   {
-    name: "My Dashboard",
-    alias: "Dashboard",
-    link: AppRoutes.dashboard.index,
+    name: "oracle",
+    alias: NavLinksEnum.oracle,
+    link: `${AppRoutes.statistics.analysis}`,
     isActive: false,
-    Icon: DashboardIcon,
+    Icon: StatIcon,
   },
   // { name: "Students Forum", link: "" },
   // {
@@ -61,14 +64,14 @@ export const navLinks: NavLinksPropsType[] = [
   //   Icon: NewsIcon,
   // },
   {
-    name: "Subscriptions and Referrals",
-    alias: "Subscriptions",
+    name: "subscription",
+    alias: "Subscription",
     link: AppRoutes.subscription.index,
     isActive: false,
     Icon: SubscriptionIcon,
   },
   {
-    name: "Settings",
+    name: "settings",
     alias: "Settings",
     link: AppRoutes.settings.index,
     isActive: false,

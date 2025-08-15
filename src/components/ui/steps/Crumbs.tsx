@@ -1,4 +1,5 @@
 import LeftSkip from "../../../assets/comps/LeftSkipIcon";
+import { cn } from "../../../utils";
 
 type CrumbItemType = { title: string; position: number; id: string };
 
@@ -40,14 +41,15 @@ const Crumb = ({
 
       {/* large devices */}
       <div
-        className={`hidden md:flex  gap-1 items-center cursor-pointer ${
+        className={cn(
+          `hidden md:flex text-base  gap-1 items-center cursor-pointer`,
           position > currentPosition && "md:hidden"
-        }`}
+        )}
         onClick={handleStepChange}
       >
         <p
-          className={` text-sm truncate ${
-            isActive ? "text-main_bg " : "text-light_font"
+          className={` truncate ${
+            isActive ? "text-main_font " : "text-light_font"
           }
         
         `}
@@ -55,9 +57,10 @@ const Crumb = ({
           {title}
         </p>
         <div
-          className={`${
+          className={cn(
+            `${""}`,
             (!currentPosition || position === currentPosition) && "hidden"
-          }`}
+          )}
         >
           <LeftSkip color={`#858181`} />
         </div>

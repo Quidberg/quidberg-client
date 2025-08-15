@@ -2,6 +2,7 @@ import { memo, useState } from "react";
 import { InputFieldPropsType } from "../../../shared/types/FieldTypes";
 import WarningText from "../info/WarningText";
 import InfoModal from "../../containers/modals/infoModal/InfoModal";
+import { cn } from "../../../utils";
 
 const InputField = memo(
   ({
@@ -27,7 +28,7 @@ const InputField = memo(
     };
 
     return (
-      <div className={`${className} relative flex flex-col justify-between`}>
+      <div className={cn(`relative flex flex-col justify-between`, className)}>
         <InfoModal close={closeInfoModal} isOpen={showInfoModal}>
           <div>
             <p>{infoModalContent}</p>
@@ -55,10 +56,10 @@ const InputField = memo(
             <input
               name={id}
               id={id}
-              className={`${className} bg-[inherit] w-full`}
+              className={cn(` bg-[inherit] w-full`, className)}
               type={`${type ? type : "text"}`}
               placeholder={placeholder}
-              onChange={isIdle ? () => {} : handleChange}
+              onChange={isIdle ? () => null : handleChange}
               onFocus={() => setIsBorderFocus(true)}
               onBlur={() => setIsBorderFocus(false)}
               value={value}

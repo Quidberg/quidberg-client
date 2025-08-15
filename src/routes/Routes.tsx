@@ -18,13 +18,26 @@ import AdminDashboard from "../pages/admin/dashboard/AdminDashboard";
 import { GuestGuard } from "./guards/GuestGuard";
 import { AdminGuestGuard } from "./guards/AdminGuestGuard";
 import { AdminAuthGuard } from "./guards/AdminAuthGuard";
+import ErrorPage from "../pages/shared/ErrorPage";
+import ExploreClassesPage from "../pages/client/classesAndTutorials/classes/ExploreClassesPage";
+import ClassPage from "../pages/client/classesAndTutorials/classes/ClassPage";
+import ExploreTutorialsPage from "../pages/client/classesAndTutorials/tutorials/ExploreTutorialsPage";
+import TutorialPage from "../pages/client/classesAndTutorials/tutorials/TutorialPage";
+import ExploreSolutionsPage from "../pages/client/classesAndTutorials/solutions/ExploreSolutionsPage";
+import SolutionPage from "../pages/client/classesAndTutorials/solutions/SolutionPage";
+import StartExam from "../pages/client/examination/StartExam";
+import ExamInstructions from "../pages/client/examination/ExamInstructions";
+import ClassLayout from "../pages/client/classesAndTutorials/classes/ClassLayout";
 
-const RoutesSwitches = ({}) => {
+const RoutesSwitches = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<Providers />}>
-          <Route path={AppRoutes.landingPage.index} element={<LandingPage />} />
+          <Route
+            path={AppRoutes.landingPage.index}
+            element={<LandingPage />}
+          />
 
           {/* AUTH ROUTES */}
           <Route element={<GuestGuard />}>
@@ -71,22 +84,51 @@ const RoutesSwitches = ({}) => {
               }
             />
             <Route
-              path={AppRoutes.classesAndResources.classes}
+              path={AppRoutes.classesAndResources.learning}
               element={<ClassesAndTutorials />}
             />
 
-            <Route
-              path={AppRoutes.examinationSimulator.index}
-              element={<ExaminationSimulator />}
-            />
+            <Route path={AppRoutes.classesAndResources.classes}>
+              <Route path="" element={<ExploreClassesPage />} />
+              <Route path=":id" element={<ClassLayout />} />
+            </Route>
+
+            <Route path={AppRoutes.classesAndResources.tutorials}>
+              <Route path="" element={<ExploreTutorialsPage />} />
+              <Route path=":id" element={<TutorialPage />} />
+            </Route>
+
+            <Route path={AppRoutes.classesAndResources.solutions}>
+              <Route path="" element={<ExploreSolutionsPage />} />
+              <Route path=":id" element={<SolutionPage />} />
+            </Route>
+
+            <Route path={AppRoutes.examinationSimulator.index}>
+              <Route path={""} element={<ExaminationSimulator />} />
+              <Route path=":exam/:id/start" element={<StartExam />} />
+              <Route
+                path=":exam/:id/instructions"
+                element={<ExamInstructions />}
+              />
+            </Route>
             <Route
               path={AppRoutes.subscription.index}
               element={<Subscription />}
             />
-            <Route path={AppRoutes.pricing.index} element={<Pricing />} />
-            <Route path={AppRoutes.settings.index} element={<Settings />} />
-            <Route path={AppRoutes.dashboard.index} element={<Dashboard />} />
+            <Route
+              path={AppRoutes.pricing.index}
+              element={<Pricing />}
+            />
+            <Route
+              path={AppRoutes.settings.index}
+              element={<Settings />}
+            />
+            <Route
+              path={AppRoutes.dashboard.index}
+              element={<Dashboard />}
+            />
           </Route>
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

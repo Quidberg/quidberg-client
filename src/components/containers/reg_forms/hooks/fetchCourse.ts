@@ -2,7 +2,6 @@ import {
   // useCallback,
   useEffect,
 } from "react";
-import { selectedUniversityData } from "../../../utils/dummyData";
 import {
   CourseType,
   // CoursesType,
@@ -13,6 +12,7 @@ import {
   setCourseData,
 } from "../../../../app/slices/oracleRegistration/registrationSlice";
 import { useAppDispatch } from "../../../../app/hooks/regHook";
+import { selectedUniversityData } from "../../../../utils/dummyData";
 
 type ParamTypes = {
   courseId: string;
@@ -26,7 +26,7 @@ const getCourse = (id: string) => {
   return course;
 };
 
-export const fetchCourse = ({ courseId, universityId }: ParamTypes) => {
+export const useFetchCourse = ({ courseId, universityId }: ParamTypes) => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     // Fetch API to get course with ids

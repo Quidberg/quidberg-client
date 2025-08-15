@@ -1,7 +1,7 @@
 export enum NavLinksEnum {
   oracle = "oracle",
-  classes = "classes",
-  examinationSimulator = "examination simulator",
-  dashboard = "dashboard",
+  classes = "Explore Learning",
+  examinationSimulator = "Exam Simulator",
+  dashboard = "My Learning",
   subscription = "subscription",
 }

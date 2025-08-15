@@ -2,7 +2,7 @@ import ClassesContainer from "../../../components/containers/classes/ClassesCont
 
 const ClassesAndTutorials = () => {
   return (
-    <div className="w-full">
+    <div className="w-full pb-20">
       <ClassesContainer />
     </div>
   );

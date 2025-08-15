@@ -6,7 +6,7 @@ import {
   setUniversitiesData,
 } from "../../../../app/slices/oracleRegistration/registrationSlice";
 
-export const fetchUniversities = () => {
+export const useFetchUniversities = () => {
   const universitiesDataStore = useAppSelector(selectUniversitiesData);
   const dispatch = useAppDispatch();
 

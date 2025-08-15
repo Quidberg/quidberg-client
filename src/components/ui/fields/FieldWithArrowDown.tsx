@@ -6,6 +6,7 @@ import { useListenForOutsideClicks } from "../../../shared/hooks/listenForOutsid
 import WarningText from "../info/WarningText";
 import InfoButton from "../buttons/InfoButton";
 import InfoModal from "../../containers/modals/infoModal/InfoModal";
+import { cn } from "../../../utils";
 
 const FieldWithArrowDown = memo(
   ({
@@ -33,7 +34,6 @@ const FieldWithArrowDown = memo(
     const [showInfoModal, setShowInfoModal] = useState(false);
 
     const { dropdownRef } = useListenForOutsideClicks(() => {
-      console.log("first");
       setisFieldFocus(false);
     }, isFieldFocus);
 
@@ -54,7 +54,6 @@ const FieldWithArrowDown = memo(
     };
 
     const handleInfoButton = () => {
-      console.log("info clicked");
       setShowInfoModal(true);
     };
 
@@ -89,21 +88,25 @@ const FieldWithArrowDown = memo(
             <div className="flex flex-col gap-2">
               <button
                 type="button"
-                className={`${
-                  (isDropDownLocked || isIdle) && "cursor-text"
-                }   relative flex w-full items-center text-start justify-between  ${
-                  (isFieldFocus || value) && !error && !isIdle
-                    ? "border-border_focus_color border-b-2"
-                    : "border-border_color border-b-border_width"
-                } ${error ? "border-warning_red ahashakeheartache" : ""}
+                className={cn(
+                  `   relative flex w-full items-center text-start justify-between  ${
+                    (isFieldFocus || value) && !error && !isIdle
+                      ? "border-border_focus_color border-b-2"
+                      : "border-border_color border-b-border_width"
+                  } ${error ? "border-warning_red ahashakeheartache" : ""}
                 
-                `}
+                `,
+                  (isDropDownLocked || isIdle) && "cursor-text"
+                )}
                 onClick={handleDropDown}
               >
                 <p
-                  className={`text-sm ${
-                    value ? "text-main_font" : "text-light_font "
-                  } w-full bg-[inherit] capitalize pl-3 truncate text-ellipsis overflow-x-hidden ${className} `}
+                  className={cn(
+                    `text-sm ${
+                      value ? "text-main_font" : "text-light_font "
+                    } w-full bg-[inherit] capitalize pl-3 truncate text-ellipsis overflow-x-hidden `,
+                    className
+                  )}
                 >
                   {value ? value : dropDownText}
                 </p>
@@ -126,7 +129,10 @@ const FieldWithArrowDown = memo(
                 {/* SEARCH */}
                 {!isSearchLocked && (
                   <input
-                    className={`w-full bg-[inherit] border-[2px] border-light_font capitalize pl-3 ${className} placeholder:text-sm`}
+                    className={cn(
+                      `w-full bg-[inherit] border-[2px] border-light_font capitalize pl-3 placeholder:text-sm`,
+                      className
+                    )}
                     type="text"
                     placeholder={placeholder}
                     onFocus={() => setisFieldFocus(true)}

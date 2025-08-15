@@ -1,4 +1,4 @@
-import { useEffect, useRef, } from "react";
+import { useEffect, useRef } from "react";
 
 export const useListenForOutsideClicks = (
   closeDropdown: () => void,
@@ -11,7 +11,6 @@ export const useListenForOutsideClicks = (
   };
 
   const evListener = (evt: any) => {
-    console.log("drop clicked");
     if (dropdownRef?.current?.contains(evt?.target)) return;
     closeDropdown();
     unListen();

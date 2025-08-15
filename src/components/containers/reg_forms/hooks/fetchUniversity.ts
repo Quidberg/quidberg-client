@@ -17,7 +17,7 @@ const getUniversity = (id: string | null) => {
   return universityData;
 };
 
-export const fetchUniversity = ({ universityId }: ParamTypes) => {
+export const useFetchUniversity = ({ universityId }: ParamTypes) => {
   const universityDataStore = useAppSelector(selectUniversityData);
 
   const dispatch = useAppDispatch();

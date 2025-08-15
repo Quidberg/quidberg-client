@@ -20,7 +20,7 @@ const NavLinkButton = ({
   };
   return (
     <button
-      className={`text-start text-xs md:text-[0.8rem] font-normal  w-full p-2 
+      className={`capitalize text-start text-xs md:text-[0.8rem] font-normal  w-full p-2 
       md:text-center flex flex-col md:justify-center md:items-center ${
         isActive
           ? " text-[#ffffff] bg-nav_link/80 rounded-md"
@@ -30,7 +30,9 @@ const NavLinkButton = ({
       onClick={onClick}
     >
       <div className="w-7 hidden md:flex m-1">
-        {Icon && <Icon color={`${isActive ? "#ffffff" : "#263238"}`} />}
+        {Icon && (
+          <Icon color={`${isActive ? "#ffffff" : "#263238"}`} />
+        )}
       </div>
       {/* LARGE DEVICES */}
       <p className={`hidden lg:flex`}>{alias}</p>

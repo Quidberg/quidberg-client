@@ -12,5 +12,6 @@ export interface ExaminationCheckListType {
   name: string;
   id: string;
   isChecked: boolean;
-  isAlreadySelected?: boolean
+  isAlreadySelected?: boolean;
+  title?: string;
 }
