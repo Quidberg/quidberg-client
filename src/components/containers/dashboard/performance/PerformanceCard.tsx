@@ -52,8 +52,8 @@ const PerformanceCard = ({
               <th className="flex flex-col items-start justify-start  text-start pl-2">
                 <DropdownMenu>
                   <DropdownMenuTrigger>
-                    <Button
-                      variant={"plain"}
+                    <div
+                      // variant={"plain"}
                       className="flex gap-2 font-semibold"
                     >
                       <p>{`Category`}</p>
@@ -62,7 +62,7 @@ const PerformanceCard = ({
                         <p>by Subjects</p>
                         <CaretDown />
                       </div>
-                    </Button>
+                    </div>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     <DropdownMenuLabel>

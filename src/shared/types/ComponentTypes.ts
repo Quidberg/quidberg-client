@@ -28,4 +28,6 @@ export interface TagType {
   text: string;
 }
 
+export type SubScriptionType = "premium" | "basic" | "free";
+
 export type LearningType = "classes" | "tutorials" | "solutions";

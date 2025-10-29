@@ -2,6 +2,13 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Button } from "../buttons/Button";
 import CloseIcon from "../../../assets/comps/CloseIcon";
+import { cn } from "../../../utils";
+import {
+  DialogContent,
+  DialogOverlay,
+  DialogPortal,
+  DialogRoot,
+} from "./RadixModal";
 
 export interface ModalCompProps {
   isOpen: boolean;
@@ -27,60 +34,46 @@ export const Modal = ({
     : close;
 
   return (
-    <Transition.Root show={isOpen} as={Fragment}>
-      <Dialog
-        as="div"
-        className="relative z-[292929]"
-        onClose={handleClose}
-      >
+    // <Transition.Root show={isOpen} as={Fragment}>
+    <DialogRoot
+      // as="div"
+      // className="relative z-[292929]"
+      // open={isOpen}
+      defaultOpen
+    >
+      <DialogPortal>
         {/* overlay */}
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <div className="fixed inset-0 bg-[rgba(0,0,0,0.25)] bg-opacity-75 transition-opacity" />
-        </Transition.Child>
+
+        <DialogOverlay className="fixed inset-0 bg-[rgba(0,0,0,0.25)] bg-opacity-75 transition-opacity" />
 
         {/* main modal container */}
-        <div className="fixed inset-0 z-10 overflow-y-auto">
+        <DialogContent className="fixed inset-0 z-10 overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              enterTo="opacity-100 translate-y-0 sm:scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-              leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            >
-              {/* main modal panel */}
-              <Dialog.Panel
-                className={`relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all min-w-[100px] max-w-[99%]  min-h-fit max-h-[90vh] ${
+            {/* main modal panel */}
+            <div
+              className={cn(
+                `relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all min-w-[100px] max-w-[99%]  min-h-fit max-h-[90vh] ${
                   dialogClassName ? dialogClassName : ""
-                }`}
-              >
-                {showCloseButton && (
-                  <div className="w-full flex justify-end px-3">
-                    <Button
-                      className="px-1"
-                      variant={"plain"}
-                      onClick={handleClose}
-                    >
-                      {<CloseIcon />}
-                    </Button>
-                  </div>
-                )}
-                {children}
-              </Dialog.Panel>
-            </Transition.Child>
+                }`
+              )}
+            >
+              {showCloseButton && (
+                <div className="w-full flex justify-end px-3">
+                  <Button
+                    className="px-1"
+                    variant={"plain"}
+                    onClick={handleClose}
+                  >
+                    {<CloseIcon />}
+                  </Button>
+                </div>
+              )}
+              {children}
+            </div>
           </div>
-        </div>
-      </Dialog>
-    </Transition.Root>
+        </DialogContent>
+      </DialogPortal>
+    </DialogRoot>
+    // </Transition.Root>
   );
 };

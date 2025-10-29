@@ -11,7 +11,10 @@ const generateIdFromField = (arr: any[]) => {
 export const universitiesData = [
   { name: "University of Lagos", id: "University of Lagos" },
   { name: "University of Benin", id: "University of Benin" },
-  { name: "Obafemi Awolowo University", id: "Obafemi Awolowo University" },
+  {
+    name: "Obafemi Awolowo University",
+    id: "Obafemi Awolowo University",
+  },
   { name: "Convenant University", id: "Convenant University" },
   { name: "Babcock University", id: "Babcock University" },
 ];
@@ -250,4 +253,20 @@ export const topSearches = [
     title: "Essay writing",
     tag: ["tutorial", "English Language"],
   },
+];
+
+export const gradeOrLevel = [
+  { level: 7, alias: "JS1 or Grade 7" },
+  { level: 8, alias: "JS2 or Grade 8" },
+  { level: 9, alias: "JS3 or Grade 9" },
+  { level: 10, alias: "SS1 or Grade 10" },
+  { level: 11, alias: "SS2 or Grade 11" },
+  { level: 12, alias: "SS3 or Grade 12" },
+  { level: 100, alias: "100 Level or Year 1" },
+];
+
+export const department = [
+  { name: "science", alias: "Science" },
+  { name: "commercial", alias: "Commercial" },
+  { name: "arts", alias: "Arts" },
 ];

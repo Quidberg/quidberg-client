@@ -5,6 +5,7 @@ import ClassCard from "./ClassCard";
 import { AppRoutes } from "../../../routes/AppRoutes";
 import { LearningType } from "../../../shared/types/ComponentTypes";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../ui/buttons/Button";
 
 const tabsList = [
   {
@@ -105,7 +106,7 @@ const BrowseAll = () => {
           <RightArrow color={"#1DA1F2"} />
         </div>
       </button> */}
-      <section>
+      <section className="w-full flex flex-col items-center">
         {/* TABS */}
         {/* <div className=" mb-4 xl:mb-8">
           <Tabs
@@ -113,7 +114,7 @@ const BrowseAll = () => {
             handleClickTab={handleClickTab}
           />
         </div> */}
-        <div className="h-fit grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-7 p-3">
+        <div className="w-full h-fit grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-7 p-3">
           {dummyClassList.map((classObj) => (
             <ClassCard
               title={classObj?.title}
@@ -127,6 +128,13 @@ const BrowseAll = () => {
             />
           ))}
         </div>
+
+        <Button
+          variant={"outline"}
+          className="text-sm px-3 py-1 w-full sm:max-w-fit border-[1.5px] border-main_bg/60 text-main_bg"
+        >
+          {`View History`}
+        </Button>
       </section>
     </div>
   );

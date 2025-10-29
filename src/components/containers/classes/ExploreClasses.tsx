@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import FolderIcon from "../../../assets/comps/FolderIcon";
 import WriteFeatherIcon from "../../../assets/comps/WriteFeatherIcon";
 import VideoIcon from "../../../assets/comps/VideoIcon";
+import { cn } from "../../../utils";
 
 type ExploreClassesPropType = {
   popularSubjects: { name: string; id: string }[];
@@ -14,19 +15,28 @@ type ExploreClassesPropType = {
 
 const exploreLearningTypes = [
   {
-    name: "Classes",
+    name: "Explore Classes",
     link: AppRoutes.classesAndResources.classes,
     icon: FolderIcon,
+    color: "#845763",
   },
   {
-    name: "Tutorials",
+    name: "Explore Tutorials",
     link: AppRoutes.classesAndResources.tutorials,
     icon: VideoIcon,
+    color: "#ffb343",
   },
   {
-    name: "Solutions",
+    name: "Explore Solutions",
     link: AppRoutes.classesAndResources.solutions,
     icon: WriteFeatherIcon,
+    color: "#245f73",
+  },
+  {
+    name: "Explore Examinations",
+    link: AppRoutes.examinationSimulator.index,
+    icon: WriteFeatherIcon,
+    color: "#FC8EAC",
   },
 ];
 
@@ -41,17 +51,22 @@ const ExploreClasses = ({
       </h1>
 
       <div className="flex gap-3  w-full justify-center">
-        {exploreLearningTypes.map(({ name, link, icon: Icon }) => (
-          <Button
-            className="bg-main_bg text-white font-semibold flex gap-2"
-            variant={"comic"}
-            onClick={() => navigate(link)}
-            key={link}
-          >
-            <Icon />
-            <p>{name}</p>
-          </Button>
-        ))}
+        {exploreLearningTypes.map(
+          ({ name, link, icon: Icon, color }) => (
+            <Button
+              className={cn(
+                "bg-main_bg text-white font-semibold flex gap-2 hover:bg-main_bg/60 py-2 h-auto"
+              )}
+              style={{ backgroundColor: color ? color : "" }}
+              variant={"comic"}
+              onClick={() => navigate(link)}
+              key={link}
+            >
+              <Icon />
+              <p>{name}</p>
+            </Button>
+          )
+        )}
       </div>
 
       <section className=" flex flex-col gap-3">

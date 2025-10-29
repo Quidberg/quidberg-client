@@ -126,7 +126,7 @@ const ClassLayout = () => {
                       professionals
                     </span>
                     <span className="inline-block bg-white/10 px-3 py-1 rounded-full text-sm">
-                      Format: Modules, projects, quizzes
+                      Format: Topics, projects, quizzes
                     </span>
                   </div>
                 </motion.div>
@@ -300,11 +300,11 @@ const ClassLayout = () => {
                       </div>
                     </dl>
 
-                    <div className="mt-6">
+                    {/* <div className="mt-6">
                       <button className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700">
                         Enroll Now
                       </button>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="bg-white rounded-2xl p-6 shadow">
@@ -344,11 +344,11 @@ const ClassLayout = () => {
                 </aside>
               </main>
 
-              <footer className="max-w-6xl mx-auto mt-12 text-center text-gray-500 text-sm">
+              {/* <footer className="max-w-6xl mx-auto mt-12 text-center text-gray-500 text-sm">
                 © {new Date().getFullYear()} Foundations &
                 Applications of Mathematics — Designed with Tailwind
                 CSS
-              </footer>
+              </footer> */}
             </div>
           </section>
         </div>
@@ -444,7 +444,7 @@ const TopicItem = ({
 
 const modules = [
   {
-    title: "Module 1 – Introduction to Mathematics & Number Systems",
+    title: "Topic 1 – Introduction to Mathematics & Number Systems",
     brief:
       "Explore the role of mathematics, number types, primes, and sequences.",
     topics: [
@@ -455,7 +455,7 @@ const modules = [
     ],
   },
   {
-    title: "Module 2 – Arithmetic & Proportional Reasoning",
+    title: "Topic 2 – Arithmetic & Proportional Reasoning",
     brief:
       "Master operations, fractions, percentages, and real-world ratio problems.",
     topics: [
@@ -466,7 +466,7 @@ const modules = [
     ],
   },
   {
-    title: "Module 3 – Algebra & Symbolic Reasoning",
+    title: "Topic 3 – Algebra & Symbolic Reasoning",
     brief:
       "From variables to polynomials and real-world algebraic modeling.",
     topics: [
@@ -477,7 +477,7 @@ const modules = [
     ],
   },
   {
-    title: "Module 4 – Geometry & Spatial Understanding",
+    title: "Topic 4 – Geometry & Spatial Understanding",
     brief:
       "Understand shapes, angles, area, volume, and coordinate geometry.",
     topics: [
@@ -488,7 +488,7 @@ const modules = [
     ],
   },
   {
-    title: "Module 5 – Trigonometry & Measurement",
+    title: "Topic 5 – Trigonometry & Measurement",
     brief:
       "Trigonometric ratios, laws of sines/cosines, and real-world uses.",
     topics: [
@@ -499,7 +499,7 @@ const modules = [
     ],
   },
   {
-    title: "Module 6 – Statistics & Probability",
+    title: "Topic 6 – Statistics & Probability",
     brief:
       "Collect, analyze, and interpret data; basics of probabilistic thinking.",
     topics: [
@@ -510,7 +510,7 @@ const modules = [
     ],
   },
   {
-    title: "Module 7 – Calculus Fundamentals",
+    title: "Topic 7 – Calculus Fundamentals",
     brief:
       "Limits, derivatives, integrals, and applied optimization.",
     topics: [
@@ -521,7 +521,7 @@ const modules = [
     ],
   },
   {
-    title: "Module 8 – Applied Mathematics & Problem-Solving",
+    title: "Topic 8 – Applied Mathematics & Problem-Solving",
     brief:
       "Mathematical modeling, optimization, and domain-specific applications.",
     topics: [

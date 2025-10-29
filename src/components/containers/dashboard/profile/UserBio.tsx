@@ -3,11 +3,16 @@ import { classConverter } from "../../../../utils/utilFunction";
 export type UserBioPropType = {
   grade: string | number;
   dept: string;
-  bio: string;
+  bio?: string;
   subscription: string;
 };
 
-const UserBio = ({ grade, dept, bio, subscription }: UserBioPropType) => {
+const UserBio = ({
+  grade,
+  dept,
+  bio,
+  subscription,
+}: UserBioPropType) => {
   const { grade: schoolGrade, sec } = classConverter(grade);
   return (
     <div className="text-sm md:text-[0.9rem]">
@@ -21,7 +26,11 @@ const UserBio = ({ grade, dept, bio, subscription }: UserBioPropType) => {
               </td>
               <td className="">
                 <div className="flex gap-3">
-                  <p>{`${sec}`} <span className="text-light_border_color">|</span> {`${schoolGrade}`}</p>
+                  <p>
+                    {`${sec}`}{" "}
+                    <span className="text-light_border_color">|</span>{" "}
+                    {`${schoolGrade}`}
+                  </p>
                   <p className="text-main_bg/70">{dept}</p>
                 </div>
               </td>
@@ -33,7 +42,9 @@ const UserBio = ({ grade, dept, bio, subscription }: UserBioPropType) => {
                 <p className="">{`Subscription`}</p>
               </td>
               <td className=" ">
-                <div className="flex gap-1 text-gold bg-light_gold border-[0.8px] border-gold w-fit p-[0.1rem] px-2">{subscription}</div>
+                <div className="flex gap-1 text-gold bg-light_gold border-[0.8px] border-gold w-fit p-[0.1rem] px-2">
+                  {subscription}
+                </div>
               </td>
             </tr>
 

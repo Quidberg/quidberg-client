@@ -5,11 +5,13 @@ import UserBio, { UserBioPropType } from "./UserBio";
 type UserProfileType = {
   handleEditProfile: () => void;
 };
-type UserProfilePropType = UserIdPropType & UserProfileType & UserBioPropType;
+type UserProfilePropType = UserIdPropType &
+  UserProfileType &
+  UserBioPropType;
 
 const UserProfile = ({
   fullName,
-  userName,
+  // userName,
   dateJoined,
   pic,
   handleEditProfile,
@@ -23,11 +25,14 @@ const UserProfile = ({
       <section className="flex justify-between items-start">
         <UserId
           fullName={fullName}
-          userName={userName}
+          // userName={userName}
           dateJoined={dateJoined}
           pic={pic}
         />
-        <EditButton text="Edit Profile" handleEdit={handleEditProfile} />
+        <EditButton
+          text="Edit Profile"
+          handleEdit={handleEditProfile}
+        />
       </section>
       <section className="md:ml-4">
         <UserBio

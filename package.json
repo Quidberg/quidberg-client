@@ -34,7 +34,7 @@
     "framer-motion": "^12.23.12",
     "lodash": "^4.17.21",
     "nestjs-zod": "^3.0.0",
-    "radix-ui": "^1.4.2",
+    "radix-ui": "^1.4.3",
     "react": "^18.2.0",
     "react-activity-calendar": "^2.7.13",
     "react-dom": "^18.2.0",
