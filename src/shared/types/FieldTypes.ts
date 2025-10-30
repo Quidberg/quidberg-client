@@ -16,7 +16,7 @@ export interface InputFieldPropsType {
   value: string | number;
   fieldName?: string;
   error?: FormErrorType[] | null | string;
-  handleChange?: (e: unknown) => void;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   isIdle?: boolean;
   infoModalContent?: string;
   titleClassName?: string;

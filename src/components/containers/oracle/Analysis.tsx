@@ -29,7 +29,8 @@ type Props = {
 
 const Analysis = ({ cutoffMark, percentResult }: Props) => {
   const cutOffColumnHelper = createColumnHelper<CutoffMarkTable[0]>();
-  const percentResultColumnHelper = createColumnHelper<PercentResultType[0]>();
+  const percentResultColumnHelper =
+    createColumnHelper<PercentResultType[0]>();
 
   const defaultCutOffColumns = [
     cutOffColumnHelper.accessor("year", {
@@ -41,7 +42,8 @@ const Analysis = ({ cutoffMark, percentResult }: Props) => {
       ? cutoffMark[0].zone.map(({ title }) =>
           cutOffColumnHelper.accessor(title, {
             cell: (req) => req.getValue(),
-            header: () => title.charAt(0).toUpperCase() + title.slice(1),
+            header: () =>
+              title.charAt(0).toUpperCase() + title.slice(1),
             // footer: req => req.column.id,
           })
         )
@@ -89,26 +91,28 @@ const Analysis = ({ cutoffMark, percentResult }: Props) => {
           </p>
           <table className="w-full">
             <thead>
-              {cutoffTableInstance.getHeaderGroups().map((headerGroup) => (
-                <tr
-                  key={headerGroup.id}
-                  className="mb-2 border-[1px] border-b-light_border_color bg-main_bg/5"
-                >
-                  {headerGroup.headers.map((header) => (
-                    <th
-                      key={header.id}
-                      className="text-light_font py-2 capitalize"
-                    >
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                    </th>
-                  ))}
-                </tr>
-              ))}
+              {cutoffTableInstance
+                .getHeaderGroups()
+                .map((headerGroup) => (
+                  <tr
+                    key={headerGroup.id}
+                    className="mb-2 border-[1px] border-b-light_border_color bg-main_bg/5"
+                  >
+                    {headerGroup.headers.map((header) => (
+                      <th
+                        key={header.id}
+                        className="text-light_font py-2 capitalize"
+                      >
+                        {header.isPlaceholder
+                          ? null
+                          : flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                      </th>
+                    ))}
+                  </tr>
+                ))}
             </thead>
             <tbody>
               {cutoffTableInstance.getRowModel().rows.map((row) => (
@@ -138,7 +142,11 @@ const Analysis = ({ cutoffMark, percentResult }: Props) => {
           </p>
 
           <div className="text-main_font/70 w-fit">
-            {<OracleTable tableInstance={percentResultTableInstance} />}
+            {
+              <OracleTable
+                tableInstance={percentResultTableInstance}
+              />
+            }
 
             <div className="text-main_font">
               <p className="font-normal mt-2">
@@ -147,7 +155,8 @@ const Analysis = ({ cutoffMark, percentResult }: Props) => {
                   <span className="font-bold text-lg">{`${overallScore}%`}</span>
                 ) : (
                   <span className="font-semibold">
-                    unvailable because the results provided is incomplete
+                    unvailable because the results provided is
+                    incomplete
                   </span>
                 )}
               </p>
@@ -166,7 +175,10 @@ const normalizeTable = (data: CutoffMarkType): CutoffMarkTable => {
   return data
     ? data.map((td) => ({
         year: td.year,
-        ...td.zone.reduce((a, b) => (a = { [b.title]: b.score }), {}),
+        ...td.zone.reduce((a, b) => {
+          a[b.title] = b.score;
+          return a;
+        }, {} as Record<string, number>),
       }))
     : [];
 };

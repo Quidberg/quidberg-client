@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../../routes/AppRoutes";
-import { useMemo } from "react";
+// import { useMemo } from "react";
 
 import { Button } from "../../../components/ui/buttons/Button";
 
@@ -18,10 +18,10 @@ type SelectExamModeProps = {
 
 const SelectExamMode = ({
   examTypePath,
-  isTimerEnabled,
+  // isTimerEnabled,
   // enableDefaultSetting,
   // toggleSolutionsVisibility,
-  isSolutionsVisible,
+  // isSolutionsVisible,
   // toggleTimer,
   // isOnDefaultSetting,
   examId,

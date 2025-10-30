@@ -28,7 +28,12 @@ const InputField = memo(
     };
 
     return (
-      <div className={cn(`relative flex flex-col justify-between`, className)}>
+      <div
+        className={cn(
+          `relative flex flex-col justify-between`,
+          className
+        )}
+      >
         <InfoModal close={closeInfoModal} isOpen={showInfoModal}>
           <div>
             <p>{infoModalContent}</p>

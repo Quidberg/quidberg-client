@@ -81,13 +81,15 @@ ExaminationEntryFieldType) => {
             className="w-20"
             error={error}
             placeholder="score"
-            handleChange={(val: DropListType) =>
+            handleChange={(e) => {
+              const val = e.target.value;
+
               handleListAction({
                 subjectId,
-                value: val,
+                value: { name: val, id: val },
                 type: "grade",
-              })
-            }
+              });
+            }}
             type="number"
             max={400}
           />
