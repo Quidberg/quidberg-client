@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import SearchField from "../../../components/ui/fields/SearchField";
 
 type Exam = {
@@ -11,7 +11,7 @@ type Exam = {
 };
 
 const SelectExamById = () => {
-  const { exam } = useParams();
+  // const { exam } = useParams();
   const handleSearch = () => {
     return;
   };
@@ -32,7 +32,7 @@ type ExamCardProps = {
   examDetails: Exam;
 };
 
-const ExamCard = ({ examDetails }: ExamCardProps) => {
+export const ExamCard = ({ examDetails }: ExamCardProps) => {
   return (
     <div>
       <div>

@@ -4,13 +4,16 @@ import {
   universityAndFacultyData,
 } from "../../../../utils/dummyData";
 import { ExaminationType } from "../../../../app/slices/oracleRegistration/types";
-import { useAppDispatch, useAppSelector } from "../../../../app/hooks/regHook";
 import {
-  selectCourseData,
+  useAppDispatch,
+  useAppSelector,
+} from "../../../../app/hooks/regHook";
+import {
+  // selectCourseData,
   selectExaminations,
   setExaminationTaken,
 } from "../../../../app/slices/oracleRegistration/registrationSlice";
-import { BasicValueType } from "../../../../shared/types/FieldTypes";
+// import { BasicValueType } from "../../../../shared/types/FieldTypes";
 
 type ParamTypes = {
   exams: ExaminationType[];
@@ -40,8 +43,8 @@ const getExamsData = (
 
 export const useFetchExamsData = () => {
   const examinationTaken = useAppSelector(selectExaminations) || [];
-  const subjectsAccepted =
-    useAppSelector(selectCourseData)?.subjectsAccepted || [];
+  // const subjectsAccepted =
+  //   useAppSelector(selectCourseData)?.subjectsAccepted || [];
   const dispatch = useAppDispatch();
 
   const handleFetchExamsData = ({ exams }: ParamTypes) => {

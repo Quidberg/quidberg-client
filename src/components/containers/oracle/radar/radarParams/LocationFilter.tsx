@@ -1,22 +1,22 @@
-import FieldWithArrowDown from "../../../../ui/fields/FieldWithArrowDown"
+import FieldWithArrowDown from "../../../../ui/fields/FieldWithArrowDown";
 
 const LocationFilter = () => {
-    const handleLocationSelect = ()=>{
-        
-    }
+  const handleLocationSelect = () => {
+    return;
+  };
   return (
     <div>
-        <FieldWithArrowDown
+      <FieldWithArrowDown
         placeholder="Search for states in Nigeria"
-        dropDownText = 'Where do you want to study?'
+        dropDownText="Where do you want to study?"
         title="Location"
-        id= ""
-        value= ""
+        id=""
+        value=""
         handleListClick={handleLocationSelect}
         titleClassName="font-normal"
-        />
+      />
     </div>
-  )
-}
+  );
+};
 
-export default LocationFilter
+export default LocationFilter;

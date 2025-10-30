@@ -5,7 +5,6 @@ import { TrashIcon } from "../../../../assets/svg";
 import ExaminationEntryForm from "./ExaminationEntryForm";
 import {
   removeExaminationTaken,
-  selectExaminations,
   selectCourseData,
   selectUniversityData,
   // setExaminations,
@@ -13,7 +12,10 @@ import {
   setExaminationTaken,
   selectExaminationTaken,
 } from "../../../../app/slices/oracleRegistration/registrationSlice";
-import { useAppDispatch, useAppSelector } from "../../../../app/hooks/regHook";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../../app/hooks/regHook";
 import NoEntry from "../../../ui/info/NoEntry";
 import RoundedButton from "../../../ui/buttons/RoundedButton";
 import ExaminationCheckList from "./ExaminationCheckListModal";
@@ -30,7 +32,9 @@ import RemoveExamWarningModal from "../../modals/warningModal/RemoveExamWarningM
 
 const ExaminationSelectionForm = () => {
   // const examinationTaken = useAppSelector(selectExaminationTaken);
-  const examinationTakenComponent = useAppSelector(selectExaminationTaken);
+  const examinationTakenComponent = useAppSelector(
+    selectExaminationTaken
+  );
   const selectedUniversity = useAppSelector(selectUniversityData);
   const selectedCourse = useAppSelector(selectCourseData);
 
@@ -91,8 +95,9 @@ const ExaminationSelectionForm = () => {
             ...exam,
             isChecked: false,
             isAlreadySelected:
-              examinationTakenComponent?.some((e) => e?.id === exam?.id) ||
-              false,
+              examinationTakenComponent?.some(
+                (e) => e?.id === exam?.id
+              ) || false,
           }))
       );
   }, [isExamListOpen]);
@@ -233,7 +238,10 @@ const ExaminationSelectionForm = () => {
       <main className="w-full max-w-[500px] flex flex-col gap-4 items-center py-4">
         {/* ADD RESULTS BUTTON */}
         {!isExamListOpen && (
-          <AddExamination isActive={false} onClick={handleAddExamModal} />
+          <AddExamination
+            isActive={false}
+            onClick={handleAddExamModal}
+          />
         )}
 
         {/* EXAMINATION FORMS */}
@@ -263,7 +271,9 @@ const ExaminationSelectionForm = () => {
           <RoundedButton onClick={handleBackStep} isOutlined>
             Go Back
           </RoundedButton>
-          <RoundedButton onClick={handleProceed}>Proceed</RoundedButton>
+          <RoundedButton onClick={handleProceed}>
+            Proceed
+          </RoundedButton>
         </section>
       </main>
     </div>

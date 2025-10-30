@@ -1,22 +1,22 @@
-import FieldWithArrowDown from "../../../../ui/fields/FieldWithArrowDown"
+import FieldWithArrowDown from "../../../../ui/fields/FieldWithArrowDown";
 
 const CourseSelect = () => {
-    const handleCourseSelect = ()=>{
-
-    }
+  const handleCourseSelect = () => {
+    return;
+  };
   return (
     <div>
-        <FieldWithArrowDown
+      <FieldWithArrowDown
         placeholder="Search for course"
-        dropDownText = 'Select your course of choice'
+        dropDownText="Select your course of choice"
         title=" Course"
-        id= ""
-        value= ""
+        id=""
+        value=""
         handleListClick={handleCourseSelect}
         titleClassName="font-normal"
-        />
+      />
     </div>
-  )
-}
+  );
+};
 
-export default CourseSelect
+export default CourseSelect;

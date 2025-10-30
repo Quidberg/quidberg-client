@@ -1,5 +1,5 @@
+import { SelectorType } from "../../../shared/types/ComponentTypes";
 import Selector from "./Selector";
-import { SelectorType } from "../../../../shared/types/ComponentTypes";
 
 const SelectableList = ({ items }: { items: SelectorType[] }) => {
   const handleSelectorClick = (text: string) => {

@@ -66,31 +66,31 @@ const sampleClassContent = [
 ];
 
 const ClassLayout = () => {
-  const [classContent, setClassContent] = useState<ClassContent>(
-    sampleClassContent
-  );
+  const [classContent, setClassContent] =
+    useState<ClassContent | null>(sampleClassContent);
   const handleTopicComplete = (
     topicId: string,
     courseId: string,
     completed: boolean
   ) => {
-    if (!classContent) return;
-    setClassContent((classContent) =>
-      classContent.map((course) => {
-        console.log(course.courseId, courseId);
-        if (course.courseId === courseId) {
-          return {
-            ...course,
-            topics: course["topics"].map((topic) =>
-              topic.topicId === topicId
-                ? { ...topic, completed: completed }
-                : topic
-            ),
-          };
-        }
-        return course;
-      })
-    );
+    if (classContent) {
+      setClassContent(
+        classContent?.map((course) => {
+          // console.log(course.courseId, courseId);
+          if (course.courseId === courseId) {
+            return {
+              ...course,
+              topics: course["topics"].map((topic) =>
+                topic.topicId === topicId
+                  ? { ...topic, completed: completed }
+                  : topic
+              ),
+            };
+          }
+          return course;
+        })
+      );
+    }
   };
   return (
     <div className="relative flex gap-8 w-full h-fit ">
@@ -421,7 +421,6 @@ const TopicItem = ({
   title,
   completed,
   markAsComplete,
-  id,
 }: TopicItemProps) => {
   return (
     <div className="flex items-center justify-start gap-2 w-full rounded-lg bg-white/10 hover:bg-white/20 cursor-pointer">

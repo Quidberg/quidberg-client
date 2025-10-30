@@ -1,11 +1,12 @@
 import { ReactElement } from "react";
+import { cn } from "../../../utils";
 
 type OutlineButtonPropTypes = {
   children: ReactElement | string;
   onClick: () => void;
   borderColor?: string;
   color?: string;
-  className?: string
+  className?: string;
 };
 
 const OutlineButton = ({
@@ -13,7 +14,7 @@ const OutlineButton = ({
   onClick,
   color,
   borderColor,
-  className
+  className,
 }: OutlineButtonPropTypes) => {
   return (
     <button
@@ -22,7 +23,10 @@ const OutlineButton = ({
         borderColor: borderColor ? borderColor : "#1DA1F2",
         color: color ? color : "#1DA1F2",
       }}
-      className={`border-[1px] px-2 py-2 text-base font-normal ${className}`}
+      className={cn(
+        `border-[1px] px-2 py-2 text-base font-normal `,
+        className
+      )}
       onClick={onClick}
     >
       {children}

@@ -5,7 +5,7 @@ import { Modal } from "../../../ui/modal";
 export type WarningProps = {
   isOpen: boolean;
   close: () => void;
-  proceed: (id?: string) => void;
+  proceed: () => void;
   headerText?: string;
   proceedButtonText?: string;
   warningMsg?: string;

@@ -18,15 +18,15 @@ import { useLogin } from "../../../api/auth";
 
 type FormValues = z.infer<typeof loginSchema>;
 
-const AdminAuthForm = ({}) => {
-  const { login, loading } = useLogin();
+const AdminAuthForm = () => {
+  const { loading } = useLogin();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: { identifier: "", password: "" },
   });
 
-  const handleSubmit = () => {};
+  // const handleSubmit = () => {};
   return (
     <Form {...form}>
       <form className="w-full max-w-[500px] bg-light_nav_bg/30 p-4 sm:p-5 rounded-md shadow-sm max-h-[calc(100vh_-_3rem)] flex flex-col items-center gap-4">
@@ -38,7 +38,10 @@ const AdminAuthForm = ({}) => {
             <FormItem>
               <FormLabel>{`Email`}</FormLabel>
               <FormControl>
-                <Input placeholder="john.doe@example.com" {...field} />
+                <Input
+                  placeholder="john.doe@example.com"
+                  {...field}
+                />
               </FormControl>
               <FormDescription>{`You can also enter your username.`}</FormDescription>
               <FormMessage />
@@ -58,8 +61,10 @@ const AdminAuthForm = ({}) => {
               </FormControl>
               <FormDescription>
                 {/* <Trans> */}
-                Hold <code className="text-xs font-bold">Ctrl</code> to display
-                your password temporarily.
+                Hold <code className="text-xs font-bold">
+                  Ctrl
+                </code>{" "}
+                to display your password temporarily.
                 {/* </Trans> */}
               </FormDescription>
               <FormMessage />

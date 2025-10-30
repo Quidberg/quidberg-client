@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { sizeConverterTW } from "../../../utils/utilFunction";
+import { cn } from "../../../utils";
 
 type TextWithIconPropType = {
   text: string;
@@ -31,14 +32,22 @@ const TextWithIcon = ({
 
   return (
     <div
-      className={`cursor-pointer flex gap-1 md:text-base text-sm ${
-        flexPositions ? flexPositions : "items-center justify-center"
-      } ${buttonClassName}`}
+      className={cn(
+        `cursor-pointer flex gap-1 md:text-base text-sm ${
+          flexPositions
+            ? flexPositions
+            : "items-center justify-center"
+        }`,
+        buttonClassName
+      )}
       onClick={onClick}
     >
-      <p className={`text-main_bg ${textClass}`}>{text}</p>
+      <p className={cn(`text-main_bg`, textClass)}>{text}</p>
       <div className={`${size.current} `}>
-        <img src={image} className={`w-full h-full ${imageClassName}`} />
+        <img
+          src={image}
+          className={cn(`w-full h-full`, imageClassName)}
+        />
       </div>
     </div>
   );

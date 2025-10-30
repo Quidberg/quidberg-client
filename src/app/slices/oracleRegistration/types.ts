@@ -86,7 +86,11 @@ export interface SelectedUniversityType {
     subjectsAccepted: { name: string; id: string }[];
   }[];
   grades: { name: string; id: string }[];
-  applicableExaminations: { name: string; id: string; title?: string }[];
+  applicableExaminations: {
+    name: string;
+    id: string;
+    title?: string;
+  }[];
 }
 
 export interface InitialRegStepStateType {

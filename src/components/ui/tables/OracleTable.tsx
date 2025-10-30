@@ -1,10 +1,12 @@
-import { flexRender, useReactTable } from "@tanstack/react-table";
+import { flexRender, Table } from "@tanstack/react-table";
 
-type Props = {
-  tableInstance: ReturnType<typeof useReactTable>;
+type OracleTableProps<TData> = {
+  tableInstance: Table<TData>;
 };
 
-const OracleTable = ({ tableInstance }: Props) => {
+const OracleTable = <TData,>({
+  tableInstance,
+}: OracleTableProps<TData>) => {
   if (!tableInstance) return null;
   return (
     <table className="w-full ">
@@ -38,7 +40,10 @@ const OracleTable = ({ tableInstance }: Props) => {
           >
             {row.getVisibleCells().map((cell) => (
               <td key={cell.id} className="py-2 ">
-                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                {flexRender(
+                  cell.column.columnDef.cell,
+                  cell.getContext()
+                )}
               </td>
             ))}
           </tr>

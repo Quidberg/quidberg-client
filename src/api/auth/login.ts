@@ -23,7 +23,8 @@ export const login = async (data: LoginDto) => {
 export const useLogin = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const setUser = (userData: any) => dispatch(setUserState(userData));
+  const setUser = (userData: unknown) =>
+    dispatch(setUserState(userData));
 
   const {
     error,

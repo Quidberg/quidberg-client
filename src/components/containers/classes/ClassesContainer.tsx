@@ -2,8 +2,6 @@ import SearchField from "../../ui/fields/SearchField";
 import ExploreClasses from "./ExploreClasses";
 // import BrowseAll from "./BrowseAll";
 import { useNavigate } from "react-router-dom";
-import { capitalize } from "lodash";
-import FormCard from "../../ui/cards/FormCard";
 import RightArrow from "../../../assets/comps/RightArrow";
 import { Button } from "../../ui/buttons/Button";
 import { dummyClassList } from "./BrowseAll";
@@ -81,7 +79,6 @@ type CategoryContainerProps = {
 };
 
 const CategoryContainer = ({
-  category,
   title,
   handleClassCardClick,
 }: CategoryContainerProps) => {

@@ -45,7 +45,8 @@ export const ProfilePic = ({
   return (
     <section
       className={cn(
-        `h-20 aspect-square sm:h-[8rem] xl:h-[10rem] rounded-[40%] bg-light_gray_bg ${className}`
+        `h-20 aspect-square sm:h-[8rem] xl:h-[10rem] rounded-[40%] bg-light_gray_bg `,
+        className && className
       )}
     >
       <img src={src} alt="avatar" {...props} />

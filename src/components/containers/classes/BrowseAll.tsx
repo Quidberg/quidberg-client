@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Tabs, { TabsType } from "../../ui/steps/Tabs";
+// import { TabsType } from "../../ui/steps/Tabs";
 // import RightArrow from "../../../assets/comps/RightArrow";
 import ClassCard from "./ClassCard";
 import { AppRoutes } from "../../../routes/AppRoutes";
@@ -7,30 +7,36 @@ import { LearningType } from "../../../shared/types/ComponentTypes";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../ui/buttons/Button";
 
-const tabsList = [
-  {
-    id: "all",
-    title: "All",
-    isActive: true,
-  },
-  {
-    id: "classes",
-    title: "Classes",
-    isActive: false,
-  },
-  {
-    id: "tutorials",
-    title: "Tutorials",
-    isActive: false,
-  },
-  {
-    id: "solutions",
-    title: "Solutions",
-    isActive: false,
-  },
-];
+// const tabsList = [
+//   {
+//     id: "all",
+//     title: "All",
+//     isActive: true,
+//   },
+//   {
+//     id: "classes",
+//     title: "Classes",
+//     isActive: false,
+//   },
+//   {
+//     id: "tutorials",
+//     title: "Tutorials",
+//     isActive: false,
+//   },
+//   {
+//     id: "solutions",
+//     title: "Solutions",
+//     isActive: false,
+//   },
+// ];
 
-export const dummyClassList = [
+export const dummyClassList: Array<{
+  sections: string | number;
+  type: LearningType;
+  rating: number;
+  title: string;
+  id: string;
+}> = [
   {
     sections: 2,
     type: "classes",
@@ -62,25 +68,28 @@ export const dummyClassList = [
 ];
 
 const BrowseAll = () => {
-  const [tabsState, setTabsState] = useState(tabsList);
-  const [classInProgess, setClassInProgress] = useState([]);
+  // const [tabsState, setTabsState] = useState(tabsList);
+  const [
+    classInProgess,
+    // setClassInProgress
+  ] = useState([]);
   const navigate = useNavigate();
 
-  const handleClickTab = (id: string) => {
-    setTabsState(
-      tabsState.map((tab: TabsType) => {
-        return tab.id == id
-          ? {
-              ...tab,
-              isActive: true,
-            }
-          : {
-              ...tab,
-              isActive: false,
-            };
-      })
-    );
-  };
+  // const handleClickTab = (id: string) => {
+  //   setTabsState(
+  //     tabsState.map((tab: TabsType) => {
+  //       return tab.id == id
+  //         ? {
+  //             ...tab,
+  //             isActive: true,
+  //           }
+  //         : {
+  //             ...tab,
+  //             isActive: false,
+  //           };
+  //     })
+  //   );
+  // };
 
   const handleClassCardClick = (id: string, type: LearningType) => {
     console.log("clicked card");

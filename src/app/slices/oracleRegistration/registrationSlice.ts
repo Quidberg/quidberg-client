@@ -36,7 +36,10 @@ export const regStepSlice = createSlice({
       state.position = action.payload;
     },
 
-    setExaminations: (state, action: PayloadAction<ExaminationType[]>) => {
+    setExaminations: (
+      state,
+      action: PayloadAction<ExaminationType[]>
+    ) => {
       const newExaminations = action.payload;
       const prevExaminations = state.examinations;
 
@@ -45,7 +48,10 @@ export const regStepSlice = createSlice({
         : [];
     },
 
-    setExaminationTaken: (state, action: PayloadAction<ExamTakenType[]>) => {
+    setExaminationTaken: (
+      state,
+      action: PayloadAction<ExamTakenType[]>
+    ) => {
       state.formValues.examinationTaken = action.payload;
     },
 
@@ -58,7 +64,9 @@ export const regStepSlice = createSlice({
 
     setUniversitiesData: (
       state,
-      action: PayloadAction<InitialRegStepStateType["universitiesData"]>
+      action: PayloadAction<
+        InitialRegStepStateType["universitiesData"]
+      >
     ) => {
       state.universitiesData = action.payload;
     },
@@ -72,7 +80,8 @@ export const regStepSlice = createSlice({
       action: PayloadAction<SubjectTakenPayloadType>
     ) => {
       const examinations = state.formValues.examinationTaken;
-      const { subjectId, value, type, examId } = action?.payload ?? null;
+      const { subjectId, value, type, examId } =
+        action?.payload ?? null;
 
       const newExamTaken = examinations?.map((exam) => {
         if (exam?.id === examId) {
@@ -90,6 +99,7 @@ export const regStepSlice = createSlice({
                     },
                   };
                 }
+                value;
                 return subjectAndGrade;
               }
             ),
@@ -97,10 +107,15 @@ export const regStepSlice = createSlice({
         }
         return exam;
       });
-      state.formValues.examinationTaken = newExamTaken ? newExamTaken : [];
+      state.formValues.examinationTaken = newExamTaken
+        ? newExamTaken
+        : [];
     },
 
-    removeExaminationTaken: (state, action: PayloadAction<string>) => {
+    removeExaminationTaken: (
+      state,
+      action: PayloadAction<string>
+    ) => {
       const id: string = action.payload;
       console.log(id);
       const examList = state.formValues.examinationTaken;
@@ -115,10 +130,16 @@ export const regStepSlice = createSlice({
       state.formValues = { ...state.formValues, ...action.payload };
     },
 
-    setSchoolOfChoice: (state, action: PayloadAction<SchoolOfChoiceType>) => {
+    setSchoolOfChoice: (
+      state,
+      action: PayloadAction<SchoolOfChoiceType>
+    ) => {
       state.formValues.university = action.payload;
     },
-    setCourseOfChoice: (state, action: PayloadAction<CourseOfChoiceType>) => {
+    setCourseOfChoice: (
+      state,
+      action: PayloadAction<CourseOfChoiceType>
+    ) => {
       state.formValues.course = action.payload;
     },
     setJambScore: (state, action: PayloadAction<JambScoreType>) => {
@@ -146,7 +167,8 @@ export const {
   setIsRegSubmitted,
 } = regStepSlice.actions;
 
-export const selectRegStep = (state: RootStateType) => state.regStep.position;
+export const selectRegStep = (state: RootStateType) =>
+  state.regStep.position;
 export const selectExaminations = (state: RootStateType) =>
   state.regStep.examinations;
 export const selectExaminationTaken = (state: RootStateType) =>

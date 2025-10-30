@@ -56,7 +56,7 @@ const ExploreSolutionsPage = () => {
               <p className="text-sm opacity-75">Department</p>
               <Select
                 value={""}
-                onValueChange={(value) => {
+                onValueChange={() => {
                   ("");
                 }}
               >
@@ -75,7 +75,7 @@ const ExploreSolutionsPage = () => {
               <p className="text-sm opacity-75">Grade | Level</p>
               <Select
                 value={""}
-                onValueChange={(value) => {
+                onValueChange={() => {
                   ("");
                 }}
               >
@@ -96,7 +96,7 @@ const ExploreSolutionsPage = () => {
               <p className="text-sm opacity-75">Subject | Course</p>
               <Select
                 value={""}
-                onValueChange={(value) => {
+                onValueChange={() => {
                   ("");
                 }}
               >

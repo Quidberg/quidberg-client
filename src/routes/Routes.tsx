@@ -20,7 +20,7 @@ import { AdminGuestGuard } from "./guards/AdminGuestGuard";
 import { AdminAuthGuard } from "./guards/AdminAuthGuard";
 import ErrorPage from "../pages/shared/ErrorPage";
 import ExploreClassesPage from "../pages/client/classesAndTutorials/classes/ExploreClassesPage";
-import ClassPage from "../pages/client/classesAndTutorials/classes/ClassPage";
+// import ClassPage from "../pages/client/classesAndTutorials/classes/ClassPage";
 import ExploreTutorialsPage from "../pages/client/classesAndTutorials/tutorials/ExploreTutorialsPage";
 import TutorialPage from "../pages/client/classesAndTutorials/tutorials/TutorialPage";
 import ExploreSolutionsPage from "../pages/client/classesAndTutorials/solutions/ExploreSolutionsPage";

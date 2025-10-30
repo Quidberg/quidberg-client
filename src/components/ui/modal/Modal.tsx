@@ -1,14 +1,14 @@
-import { Fragment } from "react";
+// import { Fragment } from "react";
 // import { Dialog, Transition } from "@headlessui/react";
 import { Button } from "../buttons/Button";
 import CloseIcon from "../../../assets/comps/CloseIcon";
 import { cn } from "../../../utils";
-import {
-  DialogContent,
-  DialogOverlay,
-  DialogPortal,
-  DialogRoot,
-} from "./RadixModal";
+// import {
+//   DialogContent,
+//   DialogOverlay,
+//   DialogPortal,
+//   DialogRoot,
+// } from "./RadixModal";
 import * as Dialog from "@radix-ui/react-dialog";
 
 export interface ModalCompProps {
@@ -79,7 +79,7 @@ export const Modal = ({
     <Dialog.Root open={isOpen} onOpenChange={close}>
       <Dialog.Portal>
         <Dialog.Overlay className="z-10 fixed inset-0 bg-[rgba(0,0,0,0.25)] bg-opacity-75 transition-opacity" />
-        <Dialog.Content className="z-10  fixed inset-0 overflow-y-auto">
+        <Dialog.Content className="z-10 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
             {/* main modal panel */}
             <div

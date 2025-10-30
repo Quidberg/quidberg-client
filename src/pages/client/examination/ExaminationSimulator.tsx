@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 import { cn } from "../../../utils";
 import { useState } from "react";
 import SelectExamMode from "./SelectExamMode";
@@ -7,13 +7,13 @@ import { useDisclosure } from "../../../components/ui/modal/useDisclosure";
 import * as _ from "lodash";
 import SearchField from "../../../components/ui/fields/SearchField";
 
-const examLinks = [
-  { name: "JAMB Practice", id: "2020", exam: "jamb" },
-  { name: "WAEC Practice", id: "242s", exam: "waec" },
-  { name: "NECO Practice", id: "20tw20", exam: "neco" },
-  { name: "GSCE Practice", id: "202zc0", exam: "gsce" },
-  { name: "SAT Practice", id: "20ru20", exam: "sat" },
-];
+// const examLinks = [
+//   { name: "JAMB Practice", id: "2020", exam: "jamb" },
+//   { name: "WAEC Practice", id: "242s", exam: "waec" },
+//   { name: "NECO Practice", id: "20tw20", exam: "neco" },
+//   { name: "GSCE Practice", id: "202zc0", exam: "gsce" },
+//   { name: "SAT Practice", id: "20ru20", exam: "sat" },
+// ];
 
 const examPracticeData = [
   {
@@ -208,33 +208,33 @@ type ExamTabsProps = {
   handleExamTab: (id: string, exam: string) => void;
 };
 
-const ExamTabs = ({
-  title,
-  bgColor,
-  id,
-  handleExamTab,
-  exam,
-}: ExamTabsProps) => {
-  return (
-    <button
-      onClick={() => handleExamTab(id, exam)}
-      className={cn(
-        "flex flex-col justify-start flex-1 relative group w-full aspect-square rounded-xl border-main_bg/20 border p-1 sm:p-2",
-        bgColor ? `bg-${bgColor}/20` : "bg-main_bg/5"
-      )}
-    >
-      <p>{title}</p>
+// const ExamTabs = ({
+//   title,
+//   bgColor,
+//   id,
+//   handleExamTab,
+//   exam,
+// }: ExamTabsProps) => {
+//   return (
+//     <button
+//       onClick={() => handleExamTab(id, exam)}
+//       className={cn(
+//         "flex flex-col justify-start flex-1 relative group w-full aspect-square rounded-xl border-main_bg/20 border p-1 sm:p-2",
+//         bgColor ? `bg-${bgColor}/20` : "bg-main_bg/5"
+//       )}
+//     >
+//       <p>{title}</p>
 
-      <div className="absolute z-[2] top-[50%] left-[50%] -translate-x-[50%] bg-main_bg/80 backdrop-blur-md text-white text-sm font-semibold  px-3 py-1">
-        <p>Select Exam</p>
-        <div>
-          {/* Exam type */}
-          <p>By Ex</p>
-        </div>
-      </div>
-    </button>
-  );
-};
+//       <div className="absolute z-[2] top-[50%] left-[50%] -translate-x-[50%] bg-main_bg/80 backdrop-blur-md text-white text-sm font-semibold  px-3 py-1">
+//         <p>Select Exam</p>
+//         <div>
+//           {/* Exam type */}
+//           <p>By Ex</p>
+//         </div>
+//       </div>
+//     </button>
+//   );
+// };
 
 type ExamCardProp = ExamTabsProps & {
   type: string;
@@ -243,7 +243,7 @@ type ExamCardProp = ExamTabsProps & {
 
 const ExamCard = ({
   title,
-  bgColor,
+  // bgColor,
   id,
   handleExamTab,
   exam,

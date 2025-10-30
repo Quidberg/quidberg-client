@@ -8,16 +8,16 @@ import { useAppDispatch } from "../../../app/hooks/regHook";
 import { setUser as setUserState } from "../../../app/slices/auth/authSlice";
 
 export const fetchUser = async () => {
-  const response = await axios.get<UserDto | undefined, AxiosResponse<UserDto | undefined>>(
-    "/user/me",
-  );
+  const response = await axios.get<
+    UserDto | undefined,
+    AxiosResponse<UserDto | undefined>
+  >("/user/me");
 
   return response.data;
 };
 
 export const useUser = () => {
-    const dispatch = useAppDispatch();
-    const setUser = (userData: any) => dispatch(setUserState(userData));
+  const dispatch = useAppDispatch();
 
   const {
     error,
@@ -29,9 +29,12 @@ export const useUser = () => {
   });
 
   useEffect(() => {
+    const setUser = (userData: unknown) =>
+      dispatch(setUserState(userData));
+
     // setUser(user ?? null);
-    setUser(true)
-  }, [user, setUser]);
+    setUser(true);
+  }, [user]);
 
   return { user: user, loading, error };
 };

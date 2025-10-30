@@ -19,21 +19,21 @@ type SelectExamModeProps = {
 const SelectExamMode = ({
   examTypePath,
   isTimerEnabled,
-  enableDefaultSetting,
-  toggleSolutionsVisibility,
+  // enableDefaultSetting,
+  // toggleSolutionsVisibility,
   isSolutionsVisible,
-  toggleTimer,
-  isOnDefaultSetting,
+  // toggleTimer,
+  // isOnDefaultSetting,
   examId,
 }: SelectExamModeProps) => {
   const baseRoute = `${AppRoutes.examinationSimulator.index}/${examTypePath}/${examId}/instructions`;
   const navigate = useNavigate();
 
-  const newRoute = useMemo(() => {
-    return `${baseRoute}?timer=${
-      isTimerEnabled ? "on" : "off"
-    }&solutions=${isSolutionsVisible ? "on" : "off"}`;
-  }, [isTimerEnabled, baseRoute, isSolutionsVisible]);
+  // const newRoute = useMemo(() => {
+  //   return `${baseRoute}?timer=${
+  //     isTimerEnabled ? "on" : "off"
+  //   }&solutions=${isSolutionsVisible ? "on" : "off"}`;
+  // }, [isTimerEnabled, baseRoute, isSolutionsVisible]);
 
   return (
     <div className="w-full  flex flex-col gap-4 md:gap-5 p-4">

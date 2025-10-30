@@ -84,7 +84,7 @@ const Options = ({
   handleOptionSelect,
   examEnded,
   answers,
-  answered,
+  // answered,
   questionId,
 }: OptionsProps) => {
   const alphab = ["a", "b", "c", "d", "e", "f", "g"];

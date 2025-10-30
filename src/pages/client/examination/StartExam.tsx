@@ -1,6 +1,6 @@
 import {
   memo,
-  useCallback,
+  // useCallback,
   useEffect,
   useMemo,
   useState,
@@ -13,12 +13,12 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import { cn, toTimeString } from "../../../utils";
-import { set, toInteger } from "lodash";
+import { toInteger } from "lodash";
 import Question, { QuestionsCompProps } from "./Question";
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 import {
   ExamState,
-  QuestionState,
+  // QuestionState,
 } from "../../../utils/enums/exam-simulator";
 import { Modal } from "../../../components/ui/modal";
 import TimeOutIcon from "../../../assets/comps/TimeOutIcon";
@@ -68,11 +68,17 @@ const StartExam = memo(() => {
     isOpen: isSubmitExamDialogOpened,
   } = useDisclosure();
 
-  const [scoreRevealed, setScoreRevealed] = useState(false);
+  const [
+    ,
+    // scoreRevealed
+    setScoreRevealed,
+  ] = useState(false);
 
   const currentQuestion =
     toInteger(searchParams.get("question")) || 1;
-  const [examData, setExamData] = useState<SavedExamType>();
+  const [examData, setExamData] = useState<SavedExamType | null>(
+    null
+  );
   const answered = useMemo(() => {
     return examData?.answered ?? {};
   }, [examData?.answered]); // user answers
@@ -81,6 +87,7 @@ const StartExam = memo(() => {
   }, [examData?.answers]); // correct answers
 
   const handleTimerExpired = () => {
+    if (!examData) return;
     setExamData({ ...examData, examState: ExamState.finished });
     openTimeOutDialog();
     console.warn("Exam time expired");
@@ -111,12 +118,14 @@ const StartExam = memo(() => {
 
   const handleOptionSelect: QuestionsCompProps["handleOptionSelect"] =
     ({ optionId, questionId }) => {
+      if (!examData) return;
       const newAnswered = { ...answered, [questionId]: optionId };
       const newExamData = {
         ...examData,
         answered: newAnswered,
         currentQuestion: currentQuestion,
       };
+
       // update the answered state
       setExamData(newExamData);
 

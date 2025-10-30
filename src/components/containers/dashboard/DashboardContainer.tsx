@@ -238,7 +238,7 @@ const EditProfileForm = ({
               <p>Grade or Level</p>
               <Select
                 value={""}
-                onValueChange={(value) => {
+                onValueChange={() => {
                   ("");
                 }}
               >

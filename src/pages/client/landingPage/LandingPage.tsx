@@ -9,7 +9,12 @@ import Feature from "../../../components/containers/landingPage/feature/Feature"
 // import Testimonial from "../../components/containers/landingPage/testimonial/Testimonial";
 import listenForScroll from "../../../shared/hooks/listenForScroll";
 import { useEffect, useRef, useState } from "react";
-import { ClassAd, ExamAd, OracleAd, SlateCurve } from "../../../assets/png";
+import {
+  ClassAd,
+  ExamAd,
+  OracleAd,
+  SlateCurve,
+} from "../../../assets/png";
 import Footer from "../../../components/containers/footer/Footer";
 import { NavLinksEnum } from "../../../utils/enums/LinksEnum";
 import { AuthRegType } from "../../../app/slices/auth/types";
@@ -19,7 +24,8 @@ const LandingPage = () => {
   const navigate = useNavigate();
   const navRef = useRef<HTMLInputElement>(null);
 
-  const { openAuthModal, closeAuthModal, isAuthModalOpen } = useAuthModal();
+  const { openAuthModal, closeAuthModal, isAuthModalOpen } =
+    useAuthModal();
   const { scrollY } = listenForScroll();
 
   const [isScrolledPastNav, setIsScrolledPastNav] = useState(false);
@@ -31,7 +37,9 @@ const LandingPage = () => {
   const handleAuth = (type: AuthRegType) => {
     openAuthModal(type);
   };
-  const handleFeatureNav = () => {};
+  const handleFeatureNav = () => {
+    return;
+  };
 
   useEffect(() => {
     if (!navRef.current && !scrollY) return;

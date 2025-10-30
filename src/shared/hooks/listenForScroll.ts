@@ -7,13 +7,14 @@
 
 import { useEffect, useState } from "react";
 
-type ParamType = (param?: any) => void;
+type ParamType = (param?: unknown) => void;
 type scrollPropsType = {
   scrollY: number;
 } | null;
 
-function listenForScroll(funct?: ParamType) {
-  const [scrollProps, setScrollProps] = useState<scrollPropsType>(null);
+function useListenForScroll(funct?: ParamType) {
+  const [scrollProps, setScrollProps] =
+    useState<scrollPropsType>(null);
   const scrollEvent = () => {
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
@@ -31,7 +32,7 @@ function listenForScroll(funct?: ParamType) {
       window.removeEventListener("scroll", scrollEvent);
     };
   }, [window.scrollY]);
-  
+
   return { ...scrollProps };
 }
-export default listenForScroll;
+export default useListenForScroll;

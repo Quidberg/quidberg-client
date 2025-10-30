@@ -2,7 +2,7 @@ import {
   useLocation,
   useNavigate,
   useParams,
-  useSearchParams,
+  // useSearchParams,
 } from "react-router-dom";
 import { Button } from "../../../components/ui/buttons/Button";
 import { useEffect, useState } from "react";
@@ -24,9 +24,13 @@ const initialExamData: SavedExam = {
 
 const ExamInstructions = () => {
   const navigate = useNavigate();
-  const [currentQuestion, setCurrentQuestion] = useState<number>(1);
+  const [
+    ,
+    // currentQuestion
+    setCurrentQuestion,
+  ] = useState<number>(1);
   const location = useLocation();
-  const params = useSearchParams();
+  // const params = useSearchParams();
   const { id, exam } = useParams();
   const baseRoute = `${AppRoutes.examinationSimulator.index}/${
     exam ? exam : "custom-exam"
@@ -40,7 +44,7 @@ const ExamInstructions = () => {
 
   useEffect(() => {
     // check if any exam currently running on local machine
-    const searchParamString = location.search;
+    // const searchParamString = location.search;
 
     if (exam) {
       const examData: SavedExam | null = JSON.parse(

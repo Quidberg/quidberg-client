@@ -1,13 +1,9 @@
-
-const Layout = ({}) => {
+const Layout = () => {
   return (
     <div>
-        <section>
-
-        </section>
-        
+      <section></section>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

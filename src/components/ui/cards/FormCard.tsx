@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "../../../utils";
 
 type formCardProps = {
   title?: string;
@@ -21,9 +22,12 @@ const FormCard = ({
 }: formCardProps) => {
   return (
     <div
-      className={` ${
-        isLocked ? "bg-light_gray_bg" : "bg-main_bg"
-      } flex flex-col w-full h-fit bg-opacity-5 border-[1px] border-main_bg/10  rounded-border_radius gap-4 py-4 ${className}`}
+      className={cn(
+        ` ${
+          isLocked ? "bg-light_gray_bg" : "bg-main_bg"
+        } flex flex-col w-full h-fit bg-opacity-5 border-[1px] border-main_bg/10  rounded-border_radius gap-4 py-4 `,
+        className
+      )}
     >
       {title && (
         <header className="w-full flex flex-col justify-center items-center text-center">
@@ -41,7 +45,13 @@ const FormCard = ({
           )}
         </header>
       )}
-      <div className={`w-full px-3 md:px-6 ${className} ${childrenClass}`}>
+      <div
+        className={cn(
+          `w-full px-3 md:px-6`,
+          className,
+          childrenClass
+        )}
+      >
         {children}
       </div>
     </div>

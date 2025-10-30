@@ -1,10 +1,12 @@
 import { ExaminationType } from "../app/slices/oracleRegistration/types";
 import { ExaminationList } from "./enums/RegistrationEnum";
 
-const generateIdFromField = (arr: any[]) => {
-  return arr.map((element: unknown, i) => ({
+const generateIdFromField = (
+  arr: { name: string }[]
+): Array<{ name: string; id: string }> => {
+  return arr.map((element, i) => ({
     ...element,
-    id: (element.name ||= element.value ||= i),
+    id: i.toString(),
   }));
 };
 

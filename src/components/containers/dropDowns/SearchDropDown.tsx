@@ -9,7 +9,11 @@ import {
 } from "@headlessui/react";
 import OutlineButton from "../../ui/buttons/OutlineButton";
 import SearchResultContainer from "../searchResults/SearchResultContainer";
-import { searchResults, tagData, topSearches } from "../../../utils/dummyData";
+import {
+  searchResults,
+  tagData,
+  topSearches,
+} from "../../../utils/dummyData";
 // import { useListenForOutsideClicks } from "../../../shared/hooks/listenForOutsideClicks";
 
 type SearchDropDownPropTypes = {
@@ -25,9 +29,13 @@ const SearchDropDown = ({
   handleClose,
   showSearchResults,
 }: SearchDropDownPropTypes) => {
-  const handleSearchSubmit = () => {};
+  const handleSearchSubmit = () => {
+    return;
+  };
 
-  const handleSearchTag = () => {};
+  const handleSearchTag = () => {
+    return;
+  };
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>

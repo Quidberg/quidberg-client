@@ -33,7 +33,9 @@ const SearchField = ({
     // DO STH WITH THE SEARCH
   };
 
-  const handleFocus = () => {};
+  const handleFocus = () => {
+    //
+  };
   return (
     <div
       className={`flex flex-row justify-between h-[2.8rem]  w-full ${
@@ -43,7 +45,9 @@ const SearchField = ({
       } bg-light_input_bg`}
     >
       <button
-        className={`${isColored ? "bg-main_bg" : ""} h-[100%] aspect-square`}
+        className={`${
+          isColored ? "bg-main_bg" : ""
+        } h-[100%] aspect-square`}
         onClick={handleSubmitSearch}
       >
         <SearchIcon color={`${isColored ? "#FFFFFF" : "#858181"}`} />

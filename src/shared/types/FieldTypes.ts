@@ -16,7 +16,7 @@ export interface InputFieldPropsType {
   value: string | number;
   fieldName?: string;
   error?: FormErrorType[] | null | string;
-  handleChange?: (e: any) => void;
+  handleChange?: (e: unknown) => void;
   isIdle?: boolean;
   infoModalContent?: string;
   titleClassName?: string;
@@ -34,8 +34,20 @@ export interface DropDownFieldDataType extends InputFieldPropsType {
 
 export interface DropDownFieldType extends DropDownFieldDataType {
   isMenuDown?: boolean;
-  handleListClick: ({ item, id }: { item: DropListType; id: string }) => void;
-  handleFilterList?: ({ text, id }: { text: string; id: string }) => void;
+  handleListClick: ({
+    item,
+    id,
+  }: {
+    item: DropListType;
+    id: string;
+  }) => void;
+  handleFilterList?: ({
+    text,
+    id,
+  }: {
+    text: string;
+    id: string;
+  }) => void;
   isDropDownLocked?: boolean;
   isSearchLocked?: boolean;
   handleDropDownClick?: (id: string) => void;

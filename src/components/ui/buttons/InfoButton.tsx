@@ -1,4 +1,5 @@
 import { InfoIcon } from "../../../assets/svg";
+import { cn } from "../../../utils";
 
 type Props = {
   children: string;
@@ -15,11 +16,11 @@ const InfoButton = ({
 }: Props) => {
   return (
     <button
-      className={`flex gap-1 ${buttonClassName} items-center`}
+      className={cn(`flex gap-1 items-center`, buttonClassName)}
       type="button"
       onClick={onClick}
     >
-      <p className={`${textClassName}`}>{children}</p>
+      <p className={cn(textClassName)}>{children}</p>
       <img src={InfoIcon} />
     </button>
   );

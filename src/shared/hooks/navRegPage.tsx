@@ -1,4 +1,7 @@
-import { useAppDispatch, useAppSelector } from "../../app/hooks/regHook";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../app/hooks/regHook";
 import {
   selectRegStep,
   setRegStep,
@@ -13,7 +16,7 @@ const useNavRegPage = () => {
   };
 
   const handleBackStep = () => {
-    if (Boolean(currentRegStep)) dispatch(setRegStep(currentRegStep - 1));
+    if (currentRegStep) dispatch(setRegStep(currentRegStep - 1));
   };
 
   const handleCrumbStep = (position: number) => {

@@ -3,26 +3,51 @@ import createAuthRefreshInterceptor from "axios-auth-refresh";
 import { redirect } from "react-router-dom";
 
 import { queryClient } from "./query-client";
-import { deepSearchAndParseDates, ErrorMessage } from "../../../utils";
+import {
+  deepSearchAndParseDates,
+  ErrorMessage,
+} from "../../../utils";
 import { refreshToken } from "./refresh";
 import { toast } from "../../../shared/hooks/use-toast";
 import { USER_KEY } from "../../../constants/query-keys";
 import { translateError } from "../errors/translate-errors";
 
-export const axios = _axios.create({ baseURL: "/api", withCredentials: true });
+export const axios = _axios.create({
+  baseURL: "/api",
+  withCredentials: true,
+});
 
 // Intercept responses to transform ISO dates to JS date objects
 axios.interceptors.response.use(
   (response) => {
-    const transformedResponse = deepSearchAndParseDates(response.data, [
-      "createdAt",
-      "updatedAt",
-    ]);
+    const transformedResponse = deepSearchAndParseDates(
+      response.data,
+      ["createdAt", "updatedAt"]
+    );
     return { ...response, data: transformedResponse };
   },
-  (error) => {
-    const message = error.response?.data.message as ErrorMessage;
-    const description = translateError(message);
+  (error: unknown) => {
+    let message: ErrorMessage | string = "Unknown error";
+
+    if (_axios.isAxiosError(error)) {
+      const dataMessage: ErrorMessage | string = (
+        error.response?.data as Record<
+          "message",
+          ErrorMessage | string
+        >
+      )?.message;
+      if (typeof dataMessage === "string") {
+        message = dataMessage;
+      } else if (dataMessage && typeof dataMessage === "object") {
+        message = dataMessage as ErrorMessage;
+      } else if (error.message) {
+        message = error.message;
+      }
+    } else if (error instanceof Error) {
+      message = error.message;
+    }
+
+    const description = translateError(message as ErrorMessage);
 
     if (description) {
       toast({
@@ -32,7 +57,13 @@ axios.interceptors.response.use(
       });
     }
 
-    return Promise.reject(new Error(message));
+    return Promise.reject(
+      new Error(
+        typeof message === "string"
+          ? message
+          : JSON.stringify(message)
+      )
+    );
   }
 );
 

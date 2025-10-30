@@ -8,10 +8,14 @@ export interface AuthCompProps {
 }
 
 const AuthenticationForm = ({ authType }: AuthCompProps) => {
-  const handleInputField = () => {};
+  const handleInputField = () => {
+    return;
+  };
   const { toggleAuthType, openForgotPswdModal } = useAuthModal();
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    return;
+  };
 
   return (
     <div className="max-w-[600px]">
@@ -63,7 +67,9 @@ const AuthenticationForm = ({ authType }: AuthCompProps) => {
         </div>
 
         <RoundedButton className="w-full mt-4 xl:mt-10 py-2">
-          {authType === AuthType.signin ? "Login" : "Create an account"}
+          {authType === AuthType.signin
+            ? "Login"
+            : "Create an account"}
         </RoundedButton>
 
         <div className="w-full flex justify-center mt-4">

@@ -10,7 +10,9 @@ type Props = {
 
 const ForgotPassword = ({ close }: Props) => {
   const { returnFromForgotPswdModal } = useAuthModal();
-  const handleInputField = () => {};
+  const handleInputField = () => {
+    return;
+  };
   return (
     <div className="flex flex-col gap-4 p-4 px-4">
       <header className="flex flex-col gap-3 border-light_border_color border-b-[1px] pb-6">

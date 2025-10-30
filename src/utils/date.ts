@@ -2,21 +2,22 @@ import { toInteger } from "lodash";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const deepSearchAndParseDates = (
-  obj: any,
+  obj: unknown,
   dateKeys: string[]
-): any => {
+): unknown => {
   if (typeof obj !== "object" || obj === null) {
     return obj;
   }
 
-  const keys = Object.keys(obj);
+  const record = obj as Record<string, unknown>;
+  const keys = Object.keys(record);
 
   if (keys.length === 0) {
-    return obj;
+    return record;
   }
 
   for (const key of keys) {
-    let value = obj[key];
+    let value: unknown = record[key];
 
     if (dateKeys.includes(key) && typeof value === "string") {
       const parsedDate = new Date(value);
@@ -25,10 +26,10 @@ export const deepSearchAndParseDates = (
       }
     }
 
-    obj[key] = deepSearchAndParseDates(value, dateKeys);
+    record[key] = deepSearchAndParseDates(value, dateKeys);
   }
 
-  return obj;
+  return record;
 };
 
 export const toTimeString = (val: string | number): string => {

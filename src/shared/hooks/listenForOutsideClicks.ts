@@ -1,5 +1,9 @@
 import { useEffect, useRef } from "react";
 
+function getNodeFromEvent(e: Event): Node | null {
+  return e.target instanceof Node ? e.target : null;
+}
+
 export const useListenForOutsideClicks = (
   closeDropdown: () => void,
   isToggle: boolean
@@ -10,8 +14,9 @@ export const useListenForOutsideClicks = (
     document?.removeEventListener(`click`, evListener);
   };
 
-  const evListener = (evt: any) => {
-    if (dropdownRef?.current?.contains(evt?.target)) return;
+  const evListener = (evt: Event) => {
+    const target = getNodeFromEvent(evt);
+    if (dropdownRef?.current?.contains(target)) return;
     closeDropdown();
     unListen();
   };

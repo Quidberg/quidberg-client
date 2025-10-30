@@ -30,14 +30,20 @@ const SchoolSummary = ({
           title={"University"}
           placeholder={"Search for University "}
           list={null}
-          handleListClick={() => {}}
+          handleListClick={() => {
+            return;
+          }}
           id={"university"}
           className=""
           fieldName={"university"}
           value={universitySelected || ""}
           dropDownText={""}
-          handleFilterList={() => {}}
-          handleDropDownClick={() => {}}
+          handleFilterList={() => {
+            return;
+          }}
+          handleDropDownClick={() => {
+            return;
+          }}
           error={null}
           isIdle
         />
@@ -46,14 +52,20 @@ const SchoolSummary = ({
           title={"Course"}
           placeholder={`Search for course`}
           list={null}
-          handleListClick={() => {}}
+          handleListClick={() => {
+            return;
+          }}
           id={"course"}
           className=""
           fieldName={"course"}
           value={courseSelected || ""}
           dropDownText={``}
-          handleFilterList={() => {}}
-          handleDropDownClick={() => {}}
+          handleFilterList={() => {
+            return;
+          }}
+          handleDropDownClick={() => {
+            return;
+          }}
           isIdle
           error={null}
         />
@@ -66,7 +78,9 @@ const SchoolSummary = ({
           id="jambscore"
           value={jambScore || 0}
           fieldName="jambScore"
-          handleChange={() => {}}
+          handleChange={() => {
+            return;
+          }}
           error={null}
           isIdle
         />

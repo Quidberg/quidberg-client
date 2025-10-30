@@ -11,7 +11,7 @@ type Props = {
 const OracleProtectedRoute = ({ children }: Props) => {
   // const isRegSubmitted = useAppSelector(selectIsRegSubmitted)
   const isRegSubmitted = true;
-  let location = useLocation();
+  const location = useLocation();
 
   if (!isRegSubmitted) {
     return (

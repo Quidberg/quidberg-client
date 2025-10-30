@@ -24,7 +24,7 @@ type ExaminationEntryFieldType = {
 
 export type ExamListPayloadType = {
   subjectId: string;
-  value: DropListType | number;
+  value: DropListType;
   type: "subject" | "grade";
 };
 
@@ -59,8 +59,12 @@ ExaminationEntryFieldType) => {
           dropDownText={subjectPlaceholder}
           placeholder={"Select subject"}
           list={subjectsList}
-          handleListClick={({ item, id }) => {
-            handleListAction({ subjectId, value: item, type: "subject" });
+          handleListClick={({ item }) => {
+            handleListAction({
+              subjectId,
+              value: item,
+              type: "subject",
+            });
           }}
           id={subjectId}
           value={subject}
@@ -77,8 +81,12 @@ ExaminationEntryFieldType) => {
             className="w-20"
             error={error}
             placeholder="score"
-            handleChange={(val: number) =>
-              handleListAction({ subjectId, value: val, type: "grade" })
+            handleChange={(val: DropListType) =>
+              handleListAction({
+                subjectId,
+                value: val,
+                type: "grade",
+              })
             }
             type="number"
             max={400}
@@ -89,7 +97,11 @@ ExaminationEntryFieldType) => {
             list={gradesList}
             className="w-full"
             handleListClick={({ item }) => {
-              handleListAction({ subjectId, value: item, type: "grade" });
+              handleListAction({
+                subjectId,
+                value: item,
+                type: "grade",
+              });
             }}
             id={subjectId}
             value={grade}

@@ -1,5 +1,6 @@
 import MainButton from "../../../ui/buttons/MainButton";
 import { useHandleNavToLink } from "../../../../shared/hooks/useHandleNavLink";
+import { cn } from "../../../../utils";
 
 type Props = {
   textPosition?: "left" | "right" | undefined;
@@ -32,7 +33,10 @@ const Feature = ({
   };
   return (
     <div
-      className={`w-full flex justify-center ${bgColor} py-4 md:py-6 xl:py-10`}
+      className={cn(
+        `w-full flex justify-center py-4 md:py-6 xl:py-10`,
+        bgColor ? bgColor : ""
+      )}
     >
       <div
         className={`flex flex-col items-center gap-5 xl:gap-10 xl:w-[70%] sm:flex-row sm:items-start ${
@@ -50,11 +54,13 @@ const Feature = ({
 
         {/* description */}
         <div className="flex-1 flex flex-col sm:items-start text-start gap-4 px-4 sm:px-6">
-          <h1 className="text-lg md:text-xl font-semibold">{title}</h1>
+          <h1 className="text-lg md:text-xl font-semibold">
+            {title}
+          </h1>
           <p>{description}</p>
           <MainButton
             onClick={handleFeatureNav}
-            className={`py-2 px-4 mt-2 ${navButtonStyle}`}
+            className={cn(`py-2 px-4 mt-2 `, navButtonStyle)}
             bgColor={buttonColor}
           >
             {navButtonText}

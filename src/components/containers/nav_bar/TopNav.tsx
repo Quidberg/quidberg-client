@@ -85,7 +85,9 @@ const TopNav = ({
 
   // const handleSearch = () => {};
 
-  const showSearchResults = () => {};
+  const showSearchResults = () => {
+    return;
+  };
 
   return (
     <div

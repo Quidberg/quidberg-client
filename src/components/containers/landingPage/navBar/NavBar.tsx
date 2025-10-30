@@ -2,21 +2,28 @@ import { Link } from "react-router-dom";
 import { AuthRegType } from "../../../../app/slices/auth/types";
 import { AuthType } from "../../../../utils/enums/AuthEnum";
 import { AppRoutes } from "../../../../routes/AppRoutes";
+import { cn } from "../../../../utils";
 
 type Props = {
   handleAuth: (type: AuthRegType) => void;
   goHome: () => void;
-  ref?: React.MutableRefObject<any>;
+  ref?: React.MutableRefObject<HTMLElement>;
   isScrolledDown: boolean;
 };
 
-const NavBar = ({ handleAuth, goHome, ref, isScrolledDown }: Props) => {
+const NavBar = ({
+  handleAuth,
+  goHome,
+  ref,
+  isScrolledDown,
+}: Props) => {
   return (
     <nav
-      className={`z-nav_bar ${
+      className={cn(
+        `z-nav_bar  flex items-center px-5 py-2 `,
         isScrolledDown &&
-        "backdrop-blur-md shadow-light_gray_bg/10 bg-light_pry_bg/3"
-      } flex items-center px-5 py-2 `}
+          "backdrop-blur-md shadow-light_gray_bg/10 bg-light_pry_bg/3"
+      )}
       ref={ref}
     >
       <button
@@ -30,7 +37,10 @@ const NavBar = ({ handleAuth, goHome, ref, isScrolledDown }: Props) => {
           <button>
             <p>{"Explore"}</p>
           </button>
-          <Link to={AppRoutes.pricing.index} className="flex items-center">
+          <Link
+            to={AppRoutes.pricing.index}
+            className="flex items-center"
+          >
             Pricing
           </Link>
         </div>

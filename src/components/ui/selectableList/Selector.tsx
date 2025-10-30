@@ -1,7 +1,11 @@
-import { SelectorType } from "../../../../shared/types/ComponentTypes";
+import { SelectorType } from "../../../shared/types/ComponentTypes";
 import CheckButton from "../buttons/CheckButton";
 
-const Selector = ({ text, isActive, selectorClick }: SelectorType) => {
+const Selector = ({
+  text,
+  isActive,
+  selectorClick,
+}: SelectorType) => {
   const handleClick = () => {
     selectorClick(text);
   };

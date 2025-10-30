@@ -3,28 +3,28 @@ import VideoIcon from "../../../assets/comps/VideoIcon";
 import WriteFeatherIcon from "../../../assets/comps/WriteFeatherIcon";
 import { LearningType } from "../../../shared/types/ComponentTypes";
 
-type ClassCardPropType = {
+export type ClassCardPropType = {
   sections: string | number;
   type: LearningType;
   rating: number;
   title: string;
-  handleAdd: () => void;
+  // handleAdd: () => void;
   handleCardClick: (id: string, type: LearningType) => void;
   id: string;
 };
 
 const ClassCard = ({
   id,
-  sections,
+  // sections,
   type,
   rating,
   title,
-  handleAdd,
+  // handleAdd,
   handleCardClick,
 }: ClassCardPropType) => {
-  const handleAddAction = () => {
-    handleAdd();
-  };
+  // const handleAddAction = () => {
+  //   handleAdd();
+  // };
 
   return (
     <div

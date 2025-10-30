@@ -1,4 +1,4 @@
-const ExamIcon = ({ color }: { color?: string }) => {
+const ExamIcon = () => {
   return (
     <div className="w-full h-full">
       <svg
