@@ -1,6 +1,9 @@
 import { createId } from "@paralleldrive/cuid2";
 import { useEffect, useState } from "react";
-import { ToastActionElement, ToastProps } from "../../components/ui/toast/toast";
+import {
+  ToastActionElement,
+  ToastProps,
+} from "../comps/ui/toast/toast";
 
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 5000;
@@ -44,7 +47,10 @@ type State = {
   toasts: ToasterToast[];
 };
 
-const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
+const toastTimeouts = new Map<
+  string,
+  ReturnType<typeof setTimeout>
+>();
 
 const addToRemoveQueue = (toastId: string) => {
   if (toastTimeouts.has(toastId)) {
@@ -74,7 +80,9 @@ export const reducer = (state: State, action: Action): State => {
     case "UPDATE_TOAST": {
       return {
         ...state,
-        toasts: state.toasts.map((t) => (t.id === action.toast.id ? { ...t, ...action.toast } : t)),
+        toasts: state.toasts.map((t) =>
+          t.id === action.toast.id ? { ...t, ...action.toast } : t
+        ),
       };
     }
 
@@ -97,7 +105,7 @@ export const reducer = (state: State, action: Action): State => {
                 ...t,
                 open: false,
               }
-            : t,
+            : t
         ),
       };
     }

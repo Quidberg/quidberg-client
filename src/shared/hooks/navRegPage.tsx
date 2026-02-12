@@ -1,11 +1,11 @@
 import {
   useAppDispatch,
   useAppSelector,
-} from "../../app/hooks/regHook";
+} from "../../app/client/store/hooks/regHook";
 import {
   selectRegStep,
   setRegStep,
-} from "../../app/slices/oracleRegistration/registrationSlice";
+} from "../../app/client/store/slices/oracleRegistration/registrationSlice";
 
 const useNavRegPage = () => {
   const dispatch = useAppDispatch();

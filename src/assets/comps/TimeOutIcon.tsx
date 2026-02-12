@@ -1,5 +1,5 @@
 import { IconProps } from "@phosphor-icons/react";
-import { cn } from "../../utils";
+import { cn } from "../../shared/utils";
 
 const TimeOutIcon = ({ className }: IconProps) => {
   return (

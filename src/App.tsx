@@ -1,5 +1,5 @@
 import "./App.css";
-import { Modals } from "./components/containers/modals";
+import { Modals } from "./app/client/containers/modals";
 import RoutesSwitches from "./routes/Routes";
 
 function App() {

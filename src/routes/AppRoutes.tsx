@@ -1,4 +1,5 @@
 export const PRF = "";
+export const ADMIN_PRF = `${PRF}/adminx`;
 
 export const AppRoutes = {
   statistics: {
@@ -47,5 +48,21 @@ export const AppRoutes = {
     login: `${PRF}/login`,
     signup: `${PRF}/signup`,
     adminSignIn: `${PRF}/adminx-signin`,
+  },
+};
+
+export const AdminAppRoutes = {
+  dashboard: {
+    index: ADMIN_PRF,
+  },
+  learning: {
+    // index: `${PRF}/classes`,
+    index: `${ADMIN_PRF}/learning`,
+    create: `${ADMIN_PRF}/learning/create`,
+    edit: `${ADMIN_PRF}/learning/edit`,
+  },
+  oracle: {
+    // index: `${PRF}/classes`,
+    index: `${ADMIN_PRF}/oracle`,
   },
 };

@@ -1,7 +1,6 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { useUser } from "../../libs/api/user/user";
+import { useUser } from "../../app/client/libs/api/user/user";
 import { AppRoutes } from "../AppRoutes";
-
 
 export const AdminAuthGuard = () => {
   const location = useLocation();
@@ -15,5 +14,10 @@ export const AdminAuthGuard = () => {
     return <Outlet />;
   }
 
-  return <Navigate replace to={`${AppRoutes.authentication.adminSignIn}?redirect=${redirectTo}`} />;
+  return (
+    <Navigate
+      replace
+      to={`${AppRoutes.authentication.adminSignIn}?redirect=${redirectTo}`}
+    />
+  );
 };

@@ -1,33 +1,37 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AppRoutes, PRF } from "./AppRoutes";
-import Registration from "../pages/client/oracle/Registration";
-import Oracle from "../pages/client/oracle/Oracle";
-import Dashboard from "../pages/client/dashboard/Dashboard";
-import AppLayout from "../components/containers/layouts/AppLayout";
-import ClassesAndTutorials from "../pages/client/classesAndTutorials/ClassesAndTutorials";
-import ExaminationSimulator from "../pages/client/examination/ExaminationSimulator";
-import Subscription from "../pages/client/subscription/Subscription";
-import Settings from "../pages/client/settings/Settings";
+import { AdminAppRoutes, AppRoutes, PRF } from "./AppRoutes";
+import Registration from "../app/client/pages/client/oracle/Registration";
+import Oracle from "../app/client/pages/client/oracle/Oracle";
+import Dashboard from "../app/client/pages/client/dashboard/Dashboard";
+import AppLayout from "../app/client/containers/layouts/AppLayout";
+import ClassesAndTutorials from "../app/client/pages/client/classesAndTutorials/ClassesAndTutorials";
+import ExaminationSimulator from "../app/client/pages/client/examination/ExaminationSimulator";
+import Subscription from "../app/client/pages/client/subscription/Subscription";
+import Settings from "../app/client/pages/client/settings/Settings";
 import OracleProtectedRoute from "./protectedRoutes/OracleProtectedRoute";
-import Authentication from "../pages/client/authentication/Authentication";
-import LandingPage from "../pages/client/landingPage/LandingPage";
-import Pricing from "../pages/client/pricing/Pricing";
-import AdminAuth from "../pages/admin/auth/AdminAuth";
-import { Providers } from "../providers";
-import AdminDashboard from "../pages/admin/dashboard/AdminDashboard";
+import Authentication from "../app/client/pages/client/authentication/Authentication";
+import LandingPage from "../app/client/pages/client/landingPage/LandingPage";
+import Pricing from "../app/client/pages/client/pricing/Pricing";
+import AdminDashboard from "../app/admin/pages/dashboard/AdminDashboard";
 import { GuestGuard } from "./guards/GuestGuard";
 import { AdminGuestGuard } from "./guards/AdminGuestGuard";
-import { AdminAuthGuard } from "./guards/AdminAuthGuard";
-import ErrorPage from "../pages/shared/ErrorPage";
-import ExploreClassesPage from "../pages/client/classesAndTutorials/classes/ExploreClassesPage";
+// import { AdminAuthGuard } from "./guards/AdminAuthGuard";
+import ErrorPage from "../app/client/pages/shared/ErrorPage";
+import ExploreClassesPage from "../app/client/pages/client/classesAndTutorials/classes/ExploreClassesPage";
 // import ClassPage from "../pages/client/classesAndTutorials/classes/ClassPage";
-import ExploreTutorialsPage from "../pages/client/classesAndTutorials/tutorials/ExploreTutorialsPage";
-import TutorialPage from "../pages/client/classesAndTutorials/tutorials/TutorialPage";
-import ExploreSolutionsPage from "../pages/client/classesAndTutorials/solutions/ExploreSolutionsPage";
-import SolutionPage from "../pages/client/classesAndTutorials/solutions/SolutionPage";
-import StartExam from "../pages/client/examination/StartExam";
-import ExamInstructions from "../pages/client/examination/ExamInstructions";
-import ClassLayout from "../pages/client/classesAndTutorials/classes/ClassLayout";
+import ExploreTutorialsPage from "../app/client/pages/client/classesAndTutorials/tutorials/ExploreTutorialsPage";
+import TutorialPage from "../app/client/pages/client/classesAndTutorials/tutorials/TutorialPage";
+import ExploreSolutionsPage from "../app/client/pages/client/classesAndTutorials/solutions/ExploreSolutionsPage";
+import SolutionPage from "../app/client/pages/client/classesAndTutorials/solutions/SolutionPage";
+import StartExam from "../app/client/pages/client/examination/StartExam";
+import ExamInstructions from "../app/client/pages/client/examination/ExamInstructions";
+import ClassLayout from "../app/client/pages/client/classesAndTutorials/classes/ClassLayout";
+import { Providers } from "../shared/providers";
+import AdminLayout from "../app/admin/containers/layout/AdminLayout";
+import AdminAuth from "../app/admin/pages/auth/AdminAuth";
+import AdminLearning from "../app/admin/pages/learning/AdminLearning";
+import AdminOracle from "../app/admin/pages/oracle/AdminOracle";
+import LearningId from "../app/admin/pages/learning/LearningId";
 
 const RoutesSwitches = () => {
   return (
@@ -62,12 +66,23 @@ const RoutesSwitches = () => {
             />
           </Route>
 
-          <Route element={<AdminAuthGuard />}>
+          {/* <Route element={<AdminAuthGuard />}> */}
+          <Route element={<AdminLayout />}>
             <Route
               path={AppRoutes.dashboard.admin}
               element={<AdminDashboard />}
             />
+            <Route path={AdminAppRoutes.learning.index}>
+              <Route path={""} element={<AdminLearning />} />
+              <Route path={"create"} element={<LearningId />} />
+              <Route path={"edit/:id"} element={<LearningId />} />
+            </Route>
+            <Route
+              path={AdminAppRoutes.oracle.index}
+              element={<AdminOracle />}
+            />
           </Route>
+          {/* </Route> */}
 
           <Route path={PRF} element={<AppLayout />}>
             <Route
